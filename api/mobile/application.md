@@ -160,6 +160,8 @@ When `webAppCapable` is set to false, the content attribute value is changed to 
     new kendo.mobile.Application($(document.body), { webAppCapable: false });
     </script>
 
+Which renders the following `meta` tag on application initialization:
+
     <meta name="apple-mobile-web-app-capable" content="no">    
 
 You can read more about the `apple-mobile-web-app-capable` in the [Safari HTML Reference](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
