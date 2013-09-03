@@ -140,15 +140,29 @@ The default View transition.
 
 ### webAppCapable `Boolean` **(default: true)**
 
-Disables the default behavior of Kendo UI Mobile apps to be web app capable (open in a chromeless browser). Introduced in Q2 2013.
+Disables the default behavior of Kendo UI Mobile apps which force the browser to run in full screen mode (chrome-less browser).  Setting the value to `false` will override this default behaviour.
 
 #### Example
 
-    <div data-role="view" id="foo"><a data-role="button" href="#bar">Bar</a></div>
+The following line will initialize a Kendo UI Mobile Application.
+
+    <script>
+    new kendo.mobile.Application($(document.body));
+    </script>    
+
+By default, Kendo UI Mobile will insert the following `meta` tag into the head of the page when the new mobile application is created using the above method:
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+When `webAppCapable` is set to false, the content attribute value is changed to "no".
 
     <script>
     new kendo.mobile.Application($(document.body), { webAppCapable: false });
     </script>
+
+    <meta name="apple-mobile-web-app-capable" content="no">    
+
+You can read more about the `apple-mobile-web-app-capable` in the [Safari HTML Reference](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
 
 ## Methods
 
