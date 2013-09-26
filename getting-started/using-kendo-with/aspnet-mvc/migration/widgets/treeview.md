@@ -48,7 +48,7 @@ All fields are optional (skipping the text field will show the item with the tex
 
 	<%= Html.Kendo().TreeView()
 	     .Name("TreeView")
-	     .DataTextField("Name")
+	     .DataTextField("text")
 	     .DataSource(source => {
 	           source.Read(read =>
 	           {
@@ -61,7 +61,7 @@ The above code allows the items to be serialized in the following form:
 
 	{
 	    id: 2,
-	    Name: "Andrew",
+	    text: "Andrew",
 	    hasChildren: true
 	}
 
@@ -70,7 +70,7 @@ The above code allows the items to be serialized in the following form:
 By default, the **id** field will be posted to the server. To change the parameter name, you can use the Data handler:
 
 	<%= Html.Kendo().TreeView()
-	    .Name("treeview")
+	    .Name("TreeView")
 	    .DataSource(dataSource => dataSource
 	        .Read(read => read
 	            .Action("Employees", "TreeView")
@@ -100,12 +100,12 @@ The value field is removed.  Depending on your use case, you can either:
 This service pack introduces a simplified checkboxes configuration, along with tri-state checkboxes:
 
     @(Html.Kendo().TreeView()
-        .Name("treeview")
+        .Name("TreeView")
         .Checkboxes(true)  // simple check boxes, posting an array of IDs
     )
 
     @(Html.Kendo().TreeView()
-        .Name("treeview")
+        .Name("TreeView")
         .Checkboxes(settings => settings
             .CheckChildren(true) // enables tri-state checkboxes, which check sub-nodes
         )
@@ -116,8 +116,8 @@ This service pack introduces a simplified checkboxes configuration, along with t
 The checkbox support is limited to the functionality shown in the [templates demo](http://demos.kendoui.com/web/treeview/templates.html) (i.e. rendering only). Any data that needs to be passed to the server needs to be added in hidden fields with JavaScript, using the proper naming. The snippet below shows a possible approach for this:
 
     @(Html.Kendo().TreeView()
-        .Name("treeview")
-        .DataTextField("Name")
+        .Name("TreeView")
+        .DataTextField("text")
         .DataSource(dataSource => dataSource
             .Read(read => read
                 .Action("Employees", "TreeView")
