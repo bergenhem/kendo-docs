@@ -1920,7 +1920,7 @@ The text of the "ends with" filter operator.
       filterable: {
         operators: {
           string: {
-            doesnotcontain: "Ends"
+            endswith: "Ends"
           }
         }
       }
