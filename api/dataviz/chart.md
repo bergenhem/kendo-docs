@@ -4256,7 +4256,7 @@ The line color of the notes.
 
 ### categoryAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the category axis notes color width
 
@@ -4879,7 +4879,7 @@ The line color of the note.
 
 ### categoryAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the category axis note color width
 
@@ -11425,7 +11425,7 @@ The line color of the notes.
 
 ### series.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the series notes color width
 
@@ -13454,7 +13454,7 @@ The line color of the notes.
 
 ### seriesDefaults.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the seriesDefaults notes color width
 
@@ -17922,7 +17922,7 @@ The line color of the notes.
 
 ### valueAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the value axis notes color width
 
@@ -18545,7 +18545,7 @@ The line color of the note.
 
 ### valueAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the value axis note color width
 
@@ -22386,7 +22386,7 @@ The line color of the notes.
 
 ### xAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the x axis notes color width
 
@@ -23009,7 +23009,7 @@ The line color of the note.
 
 ### xAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the x axis note color width
 
@@ -26844,7 +26844,7 @@ The line color of the notes.
 
 ### yAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the y axis notes color width
 
@@ -27467,7 +27467,7 @@ The line color of the note.
 
 ### yAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the y axis note color width
 

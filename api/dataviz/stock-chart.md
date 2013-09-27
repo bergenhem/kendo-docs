@@ -857,7 +857,7 @@ The line color of the notes.
 
 ### navigator.categoryAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 ### navigator.categoryAxis.notes.data `Array`
 
@@ -1000,7 +1000,7 @@ The line color of the note.
 
 ### navigator.categoryAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 ### navigator.dataSource `Object`
 
@@ -3595,7 +3595,7 @@ The line color of the notes.
 
 ### categoryAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the category axis notes color width
 
@@ -4218,7 +4218,7 @@ The line color of the note.
 
 ### categoryAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the category axis note color width
 
@@ -6441,7 +6441,7 @@ The line color of the notes.
 
 ### series.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the series notes color width
 
@@ -8354,7 +8354,7 @@ The line color of the notes.
 
 ### valueAxis.notes.line.length `Number`
 
-The line length of the notes.
+The length of the connecting lines in pixels.
 
 #### Example - set the value axis notes color width
 
@@ -8977,7 +8977,7 @@ The line color of the note.
 
 ### valueAxis.notes.data.line.length `Number`
 
-The line length of the note.
+The length of the connecting lines in pixels.
 
 #### Example - set the value axis note color width
 
