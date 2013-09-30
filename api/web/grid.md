@@ -266,6 +266,31 @@ The text displayed by the command button. If not set the [name](#configuration-c
     });
     </script>
 
+#### Example - customize the "edit", "cancel" and "update" text of the edit command
+	<div id="grid"></div>
+	<script>
+	$("#grid").kendoGrid({
+	  columns: [
+	    { field: "name" },
+	    { field: "age" },
+	    { command: [{ name: "edit",
+	                  text: { edit: "Custom edit", cancel: "Custom cancel", update: "Custom update" } }]  }
+	  ],
+	  dataSource: {
+	    data: [
+	      { id: 1, name: "Jane Doe", age: 30 },
+	      { id: 2, name: "John Doe", age: 33 }
+	    ],
+	    schema: {
+	      model: { id: "id" }
+	    }
+	  },
+	  editable: {
+	    mode: "inline"
+	  }
+	});
+	</script>
+
 ### columns.command.className `String`
 
 The CSS class applied to the command button.
