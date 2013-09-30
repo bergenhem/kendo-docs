@@ -499,8 +499,8 @@ The touch event object (available in the event handler event object) contains in
         var xAxis = touch.x;
         var yAxis = touch.y;
 
-        console.log(x.location);
-        console.log(y.location);
+        console.log(xAxis.location);
+        console.log(yAxis.location);
     }
 
     $("#touch").kendoTouch({ tap: getEventInfo });
