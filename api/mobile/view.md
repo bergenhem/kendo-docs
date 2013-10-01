@@ -80,7 +80,7 @@ The text to display in the NavBar title (if present) and the browser title.
 ### useNativeScrolling `Boolean`*(default: false)*
 
 If set to true, the view will use the native scrolling available in the current platform. This should help with form issues on some platforms (namely Android and WP8).
-Native scrolling is only enabled on platforms that support it: iOS > 4, Android > 2, WP8. BlackBerry devices do support it, but the native scroller is flaky.
+Native scrolling is only enabled on platforms that support it: iOS > 5+, Android > 3+, WP8. BlackBerry devices do support it, but the native scroller is flaky.
 
 #### Example
 
