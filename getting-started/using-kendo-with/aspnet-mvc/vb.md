@@ -11,6 +11,8 @@ publish: true
 The following example shows the correct Visual Basic (VB) syntax when using [lamba expressions](http://msdn.microsoft.com/en-us/library/bb531253.aspx) and
 [anonymous types](http://msdn.microsoft.com/en-us/library/bb384767.aspx) inside Kendo UI MVC wrapper declarations.
 
+## Editor
+
     @Code
 
         Html.Kendo().Editor() _
@@ -37,3 +39,42 @@ The following example shows the correct Visual Basic (VB) syntax when using [lam
         .Render()
 
     End Code
+	
+## Grid
+
+### View
+
+	@Code
+		Html.Kendo().Grid(Of KendoUIMvcVB.Person)() _
+			.Name("Grid") _
+			.Columns(Sub(c)
+							 c.Bound(Function(p) p.PersonID)
+							 c.Bound(Function(p) p.PersonName)
+							 c.Bound(Function(p) p.PersonBirthDate)
+					 End Sub) _
+		.Pageable() _
+		.Sortable() _
+		.Filterable() _
+		.DataSource(Function(d)
+							d.Ajax().Read(Function(read) read.Action("Person_Read", "Home"))
+					End Function) _
+		.Render()
+	End Code
+	
+### Controller
+
+	Imports Kendo.Mvc.Extensions
+	Imports Kendo.Mvc.UI
+
+	Public Class HomeController
+		Inherits System.Web.Mvc.Controller
+
+		Function Person_Read(request As DataSourceRequest) As ActionResult
+			Dim result As List(Of Person) = New List(Of Person)
+			
+			'populate result
+			
+			Return Json(result.ToDataSourceResult(request))
+		End Function
+
+	End Class
