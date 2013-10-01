@@ -145,3 +145,25 @@ The following keys and user actions are supported:
 * Right arrow moves the active state to the next root item of a horizontal Menu, if the previous active item has been inside an item group.
 * Escape closes an item group.
 * (Shift+) Tab blurs the Menu and moves focus to the next (previous) focusable page element.
+
+## Shrink the Menu to exactly fit the root items
+
+The Menu renders as an `<ul>`, which is a [block element](http://quirksmode.org/css/css2/display.html) and expands horizontally by default.
+If a horizontal Menu is wider than then total width of its root items, a blank space will remain visible on the right. In order to remove this space, you can use CSS:
+
+	
+	#menu-id /* for a specific menu instance */
+	,
+	.k-menu-horizontal /* for all horizontal menus */
+	{
+	   display: inline-block;
+	}
+
+Shrinking the horizontal Menu will make the last root item's border touch the Menu's right border (in left-to-right layouts). The last item border can be removed with:
+	
+	#menu-id > .k-last /* for a specific menu instance */
+	,
+	.k-menu-horizontal > .k-last /* for all horizontal menus */
+	{
+	   border-width: 0;
+	}
