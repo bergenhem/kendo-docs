@@ -74,3 +74,49 @@ The model configuration of the SchedulerDataSource. See [SchedulerEvent](/api/fr
         console.log(event.title); // outputs "Bowling tournament"
     });
     </script>
+
+
+## Methods
+
+See the [DataSource methods](/api/framework/datasource#methods) for all inherited methods.
+
+### expand
+
+Expands all recurring events in the data and returns a list of events for a specific period.
+
+#### Parameters
+
+##### start `Date`
+
+The start date of the period.
+
+##### end `Date`
+
+The end date of the period.
+
+#### Returns
+
+`Array` the expanded list of scheduler events filtered by the specified start/end period.
+
+#### Example - get all occurrences for a specific period
+
+    <script>
+        var dataSource = new kendo.data.SchedulerDataSource({
+            data: [
+                new kendo.data.SchedulerEvent({
+                    title: "Event1",
+                    start: new Date("2013/4/4 12:00"),
+                    start: new Date("2013/4/4 14:00")
+                }),
+                new kendo.data.SchedulerEvent({
+                    title: "Recurring event",
+                    start: new Date("2013/4/4 15:00"),
+                    start: new Date("2013/4/4 17:00"),
+                    recurrenceRule: "FREQ=DAILY"
+                })
+            ]
+        });
+
+        //returns list of expanded occurrences
+        var occurrences = dataSource.expand(new Date("2013/4/1"), new Date("2013/5/1"));
+    </script>
