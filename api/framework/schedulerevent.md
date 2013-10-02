@@ -470,6 +470,108 @@ Specifies the validation options which will be used by [Kendo Validator](/api/fr
         }
     });
 
+### clone
+
+Clones the scheduler event.
+
+#### Parameters
+
+##### options `Object`
+
+Additional options passed to the SchedulerEvent constructor.
+
+> By default, `uid` property will be preserved.
+
+#### Returns
+
+`kendo.data.Scheduler` the cloned scheduler event.
+
+#### Example - clone the scheduler event
+
+    <script>
+        var event = new kendo.data.SchedulerEvent({
+            id: 1,
+            title: "Task1",
+            start: new Date(2013, 10, 11, 12),
+            end: new Date(2013, 10, 11, 14)
+        });
+
+        var clone = event.clone();
+    </script>
+
+#### Example - override start and end dates of the event
+
+    <script>
+        var event = new kendo.data.SchedulerEvent({
+            id: 1,
+            title: "Task1",
+            start: new Date("2013/4/4 12:00"),
+            end: new Date("2013/4/4 14:00")
+        });
+
+        var clone = event.clone({
+            start: new Date("2013/4/4 2:00"),
+            end: new Date("2013/4/4 4:00")
+        });
+    </script>
+
+### duration
+
+Returns the scheduler event length in milliseconds.
+
+#### Returns
+
+`Number` the length of the event.
+
+#### Example - get length of the event
+
+    <script>
+        var event = new kendo.data.SchedulerEvent({
+            id: 1,
+            title: "Task1",
+            start: new Date("2013/4/4 12:00"),
+            end: new Date("2013/4/4 14:00")
+        });
+
+        console.log(event.duration());
+    </script>
+
+### expand
+
+Expands the event for a specific period based on the `recurrenceRule` option.
+
+#### Parameters
+
+##### start `Date`
+
+The start date of the occurrence period.
+
+##### end `Date`
+
+The end date of the occurrence period.
+
+##### timeZoneId `String`
+
+The time zone ID used to convert the recurrence rule dates.
+
+#### Returns
+
+`Array` the list of the occurrences.
+
+#### Example - get the occurrences
+
+    <script>
+    var event = new kendo.data.SchedulerEvent({
+        id: 1,
+        title: "Lunch",
+        start: new Date("2013/4/4 12:00"),
+        end: new Date("2013/4/4 13:00"),
+        recurrenceRule: "FREQ=DAILY"
+    });
+
+    var occurrences = event.expand(new Date("2013/4/4"), new Date("2013/5/4"), "Etc/UTC");
+    </script>
+
 ## Events
 
 See the [Model events](/api/framework/model#events) for all inherited events.
