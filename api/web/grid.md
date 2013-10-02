@@ -1474,7 +1474,7 @@ If set to `true` the user can edit data items when editing is enabled.
 
 ### editable.window `Object`
 
-Configures the Kendo UI Window instance, which is used when the Grid edit mode is `popup`.
+Configures the Kendo UI Window instance, which is used when the Grid edit mode is `popup`. The configuration is optional.
 
 #### Example - Grid popup Window configuration
 
