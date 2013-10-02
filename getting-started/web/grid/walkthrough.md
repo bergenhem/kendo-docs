@@ -59,7 +59,7 @@ Add an HTML table. Specify the table header. Each of `th` elements you specify w
     </table>
 
 The table can now describe the entire structure of the grid. The field that the column is bound to in the data set, is specified in the `data-field` attribute of each `th` element. Using `data-field` attributes is highly
-recommended, otherwise the header cell content should meet the [requirements of data field names](/api/web/grid#configuration-columns.field).
+recommended, otherwise the header cell content should meet the [requirements for data field names](/api/web/grid#configuration-columns.field).
 
 Since the layout of the grid is defined by the HTML it’s only necessary to call the kendoGrid() function to create a grid.
 
