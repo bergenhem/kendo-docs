@@ -51,6 +51,9 @@ The following example shows the correct Visual Basic (VB) syntax when using [lam
 							 c.Bound(Function(p) p.PersonID)
 							 c.Bound(Function(p) p.PersonName)
 							 c.Bound(Function(p) p.PersonBirthDate)
+							 c.Template(Sub()
+											@<text>server template</text>
+										End Sub).Title("Template column").ClientTemplate("client template")
 					 End Sub) _
 		.Pageable() _
 		.Sortable() _
