@@ -1472,6 +1472,26 @@ If set to `true` the user can edit data items when editing is enabled.
     });
     </script>
 
+### editable.window `Object`
+
+Configures the Kendo UI Window instance, which is used when the Grid edit mode is `popup`.
+
+#### Example - Grid popup Window configuration
+
+    <div id="grid"></div>
+    <script>
+    $("#grid").kendoGrid({
+      editable: {
+        mode: "popup",
+        window: {
+			title: "My Custom Title",
+			animation: false,
+			open: myOpenEventHandler
+		}
+      }
+    });
+    </script>
+
 ### filterable `Boolean|Object` *(default: false)*
 
 If set to `true` the user can filter the data source using the grid filter menu. Filtering is disabled by default.
