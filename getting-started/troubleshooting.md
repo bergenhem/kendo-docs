@@ -85,3 +85,14 @@ The solution is to load a partial HTML fragment that doesn't contain any unneede
 Change event of an input widget is triggered only by user action. DOM elements work in the same way.
 
 If you need to trigger an event manually use the [trigger method](http://docs.kendoui.com/api/framework/widget#trigger).
+
+## Creating two or more widgets produces JavaScript errors or only the first one is initialized/working.
+
+This will happen if two or more widgets are initialized from elements that have same IDs. The ID for each element on the page should be unique. jQuery will find only the first one every time it searches for it and thus try to initialize the first element in the DOM multiple times.
+
+	<textarea id="editor"></textarea>
+	<textarea id="editor"></textarea>
+	<script>
+		$('#editor').kendoEditor();
+		$('#editor').kendoEditor(); // problem
+	</script>
