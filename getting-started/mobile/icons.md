@@ -69,25 +69,39 @@ Import the SVG icons in Inkscape and create the SVG font icon by icon, assigning
 After creating the SVG font, convert it to TTF/WOFF formats, using [Online Font Converter](http://onlinefontconverter.com/) or other similar service.
 
 ### Loading the two fonts (TTF/WOFF) with @font-face:
-    @font-face {
-        font-family: "MyCustomFont";
-        src: url("images/MyCustomFont.woff") format("woff"),
-             url("images/MyCustomFont.ttf") format("truetype");
-    }
+    <style>
+        @font-face {
+            font-family: "MyCustomFont";
+            src: url("images/MyCustomFont.woff") format("woff"),
+                 url("images/MyCustomFont.ttf") format("truetype");
+        }
+    </style>
 
 ### Overriding the Kendo UI font for all icons (alternatively separate classes can be used to override them one by one)
-    .km-icon:after,
-    .km-icon:before
-    {
-        font: 1em/1em "MyCustomFont";
-    }
+    <style>
+        .km-icon:after,
+        .km-icon:before
+        {
+            font: 1em/1em "MyCustomFont";
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="favorites">Home</a>
+    </div>
 
 ### Specify the character corresponding to every custom icon.
-    .km-mycustomicon:after,
-    .km-mycustomicon:before
-    {
-        content: "\E03a";
-    }
+    <style>
+        .km-mycustomicon:after,
+        .km-mycustomicon:before
+        {
+            content: "\E03a";
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="mycustomicon">Home</a>
+    </div>
 
 Where mycustomicon is the icon name set in the data-icon attribute and \E03a is the Unicode character code of the icon.
 
@@ -235,47 +249,71 @@ If you want to add only one or two custom icons, specify them with their respect
 
 ### Restyle only the custom icon.
 
-    .km-root .km-pane .km-view .km-question {
-        background-size: 100% 100%;
-        -webkit-background-clip: border-box;
-        background-color: currentcolor;
-    }
+    <style>
+        .km-root .km-pane .km-view .km-question {
+            background-size: 100% 100%;
+            -webkit-background-clip: border-box;
+            background-color: currentcolor;
+        }
 
-    .km-question {
-        -webkit-mask-box-image: url("foo.png");
-        background-color: red;
-    }
+        .km-question {
+            -webkit-mask-box-image: url("foo.png");
+            background-color: red;
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="question">Home</a>
+    </div>
 
 When custom icons are used and their names are the same as the integrated Kendo UI Mobile icon names, make sure that the font icons are not rendered.
 
 ### Hide all Kendo UI Mobile font icons.
 
-    .km-root .km-pane .km-view .km-icon:after,
-    .km-root .km-pane .km-view .km-icon:before
-    {
-        visibility: hidden;
-    }
+    <style>
+        .km-root .km-pane .km-view .km-icon:after,
+        .km-root .km-pane .km-view .km-icon:before
+        {
+            visibility: hidden;
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="custom">Home</a>
+    </div>
 
 Again if only several icons should be overridden, specify them with their classes instead:
 
 ### Hide only one Kendo UI Mobile font icon.
 
-    .km-root .km-pane .km-view .km-favorites:after,
-    .km-root .km-pane .km-view .km-favorites:before
-    {
-        visibility: hidden;
-    }
+    <style>
+        .km-root .km-pane .km-view .km-favorites:after,
+        .km-root .km-pane .km-view .km-favorites:before
+        {
+            visibility: hidden;
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="favorites">Home</a>
+    </div>
 
 ## Additional icons in Kendo UI Mobile font
 
 The icon font shipped with Kendo UI Mobile contains much more icons than the 33 defined ones. The reason for this is that we wanted to keep our CSS small. In order to use them,
 you can choose an icon from the list below and add a definition for it in your CSS using its Unicode character code:
 
-    .arrow-e:after,
-    .arrow-e:before
-    {
-        content: "\e000";
-    }
+    <style>
+        .km-arrow-e:after,
+        .km-arrow-e:before
+        {
+            content: "\e000";
+        }
+    </style>
+
+    <div data-role="tabstrip">
+        <a href="#index" data-icon="arrow-e">Home</a>
+    </div>
 
 After that you will be able to specify it as a data-icon="arrow-e" in your application.
 
