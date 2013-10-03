@@ -300,8 +300,8 @@ Again if only several icons should be overridden, specify them with their classe
 
 ## Additional icons in Kendo UI Mobile font
 
-The icon font shipped with Kendo UI Mobile contains much more icons than the 33 defined ones. The reason for this is that we wanted to keep our CSS small. In order to use them,
-you can choose an icon from the list below and add a definition for it in your CSS using its Unicode character code:
+The icon font shipped with Kendo UI Mobile contains much more icons than the 33 defined ones (about 10 times more). The reason for this is that we wanted to keep our CSS small. In order to use them,
+you can choose an icon from the list below and add a definition for it in your CSS using its Unicode character code (be sure to have a km- prefix):
 
     <style>
         .km-arrow-e:after,
@@ -316,6 +316,8 @@ you can choose an icon from the list below and add a definition for it in your C
     </div>
 
 After that you will be able to specify it as a data-icon="arrow-e" in your application.
+
+Keep in mind that icons with Unicode codes starting from \e200 are already defined and in use, but only in iOS7 (and available starting from Q2 2013 SP).
 
 <style>
 @font-face {
