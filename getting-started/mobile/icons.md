@@ -570,8 +570,6 @@ Keep in mind that icons with Unicode codes starting from \e200 are already defin
 .k-i-window:after { content: "\E0C7"; }
 .k-i-tiles:after { content: "\E0C8"; }
 .k-i-wrench:after { content: "\E0C9"; }
-
-/* Mobile */
 .k-i-action:after { content: "\E0CA"; }
 .k-i-add:after { content: "\E0CB"; }
 .k-i-add-inv:after { content: "\E0CC"; }
