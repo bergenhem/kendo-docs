@@ -692,8 +692,7 @@ After that you will be able to specify it as a data-icon="arrow-e" in your appli
 .k-ios7-volume-a-fill:after { content: "\E324"; }
 .k-ios7-wifi-fill:after { content: "\E325"; }
 .k-ios7-phone-fill:after { content: "\E326"; }
-</style>
-<ul class="additional-icons">
+</style><ul class="additional-icons">
     <li><span class="button k-i-arrow-e"></span>\e000</li>
     <li><span class="button k-i-arrow-n"></span>\e001</li>
     <li><span class="button k-i-arrow-s"></span>\e002</li>
