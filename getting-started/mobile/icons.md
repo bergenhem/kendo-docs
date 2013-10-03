@@ -317,7 +317,8 @@ you can choose an icon from the list below and add a definition for it in your C
 
 After that you will be able to specify it as a data-icon="arrow-e" in your application.
 
-Keep in mind that icons with Unicode codes starting from \e200 are already defined and in use, but only in iOS7 (and available starting from Q2 2013 SP).
+Keep in mind that icons with Unicode codes from \e0ca to \e0f0 are the original Kendo UI Mobile icons listed in the beginning of the article. Also, the ones starting from \e200 are
+already defined and in use, but only in the iOS7 platform theme (and available starting from Q2 2013 SP).
 
 <style>
 @font-face {
