@@ -74,6 +74,10 @@ Category indices at which the value axes cross the category axis (when set as an
 
 > set an index greater than or equal to the number of categories to denote the far end of the axis.
 
+### navigator.categoryAxis.background `String`
+
+The background color of the axis.
+
 ### navigator.categoryAxis.baseUnit `String`
 
 The base time interval for the date axis. The default base unit is determined automatically from the minimum difference
@@ -2844,6 +2848,10 @@ The weeks unit steps.
 ### categoryAxis.autoBaseUnitSteps.years `Array` *(default: [1, 2, 3, 5, 10, 25, 50])*
 
 The years unit steps.
+
+### categoryAxis.background `String`
+
+The background color of the axis.
 
 ### categoryAxis.baseUnit `String`
 
@@ -7168,6 +7176,10 @@ Value at which the category axis crosses this axis. (Only for object)
 Value indicies at which the category axes cross the value axis. (Only for array)
 
 Date at which the category axis crosses this axis. (Only for date)
+
+### valueAxis.background `String`
+
+The background color of the axis.
 
 ### valueAxis.color `String`
 
