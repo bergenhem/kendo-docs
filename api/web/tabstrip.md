@@ -215,6 +215,21 @@ The jQuery object which contains the tabstrip items.
 
 ## Methods
 
+### activateTab
+
+Activates a tab specified as a selector. Note: Invoking this method will not trigger any events.
+
+#### Example
+
+    var tabToActivate = $("#tab1");
+    $("#tabStrip").data("kendoTabStrip").activateTab(tabToActivate);
+
+#### Parameters
+
+##### item `jQuery`
+
+The target tab, specified as a selector, to be activated.
+
 ### append
 
 Appends a tab to the collection of tabs in a **TabStrip**.
@@ -304,7 +319,7 @@ Deactivates a tab specified as a selector. Note: Invoking this method will not t
 #### Example
 
     var tabToDeactivate = $("#tab1");
-    $("#tabStrip").data("kendoTabStrip").deactivateTab(tabToActivate);
+    $("#tabStrip").data("kendoTabStrip").deactivateTab(tabToDeactivate);
 
 #### Parameters
 
