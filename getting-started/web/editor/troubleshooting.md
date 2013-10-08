@@ -13,11 +13,14 @@ publish: true
 
 Pasting in the editor requires permission to access clipboard data. This may require users with strict security settings to add the site in the trusted sites zone, or to adjust their Internet options so that the "Allow Programmatic clipboard access" setting is set to either "Allowed" or "Prompt".
 
-
 ## Editor inside a popup is readonly in Firefox
 
 Firefox cannot handle iframes properly when they are moved in the DOM. When an Editor will be used inside a popup, which moves elements in the DOM, the popup (e.g. Kendo UI Window, jQuery dialog, etc) should be initialized first.
 
+## Editor inside iPad expands instead of being scrollable
+
+Iframes cannot be scrollable in iOS and always expand to display all their content. A possible solution is to use the Editor's inline editing mode, which does not include an iframe.
+In this mode the Editor's value should be posted manually (see below).
 
 ## Inline editor value is not posted to the server
 
