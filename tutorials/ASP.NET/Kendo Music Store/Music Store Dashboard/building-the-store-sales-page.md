@@ -5,6 +5,7 @@ tags: Tutorial
 publish: true
 ---
 
+
 # Building the Store Sales page
 
 ![sales-overview](images/sales-overview.png)
