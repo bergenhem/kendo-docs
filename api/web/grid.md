@@ -4128,7 +4128,7 @@ The jQuery object which represents the table cell.
 
 ### editRow
 
-Switches the specified table cell in edit mode. Requires "inline" or "popup" [edit mode](#configuration-editable.mode).
+Switches the specified table row in edit mode. Requires "inline" or "popup" [edit mode](#configuration-editable.mode).
 
 Fires the [edit](#events-edit) event.
 
