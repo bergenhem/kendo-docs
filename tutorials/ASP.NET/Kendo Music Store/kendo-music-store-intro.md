@@ -43,7 +43,7 @@ It focuses on [Kendo UI DataViz](http://www.kendoui.com/dataviz.aspx) and how Ke
 
 ## View the Live Site
 
-The live Kendo Music Store Dashboard is located at [dashboard.kendouimusicstore.com](http://demos.kendoui.com/apps/musicstoredashboard).
+The live Kendo Music Store Dashboard is located at [demos.kendoui.com/apps/musicstoredashboard](http://demos.kendoui.com/apps/musicstoredashboard).
 
 ## Get the Source Code
 
