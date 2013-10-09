@@ -9,7 +9,7 @@ publish: true
 
 ![dashboard-overview](images/dashboard-overview.png)
 
-The Music Dashboard is constructed as a single page app, built to have smooth transitions and high performance. Using the Sammy.js framework, the various pages of the application are routed through this framework and in ASP.NET MVC.
+The Music Dashboard is constructed as a single page app (SPA), built to have smooth transitions and high performance. Using the KendoUI SPA framework, the various pages of the application are routed through this framework and in ASP.NET MVC.
 
 ## Initializing the application in MVC
 
@@ -32,7 +32,17 @@ We start with the basic ASP.NET MVC **HomeController.cs**:
 		<div id="main"></div>
 	</div>
 
-Each page of the app requires three components: an HTML page, a CSS stylesheet, and a JavaScript file. Additionally, a site-wide **Site.css**, **app.js**, and **main-view.js** are required. MVC provides the framework for the single page, but the plumbing must be included.
+    @section templates {
+        @RenderPage("salesView.cshtml")
+        @RenderPage("socialView.cshtml")
+        @RenderPage("mainView.cshtml")
+
+        @RenderPage("Templates.cshtml")
+    }
+
+Each page of the app requires three components: an HTML page, a CSS stylesheet, and a JavaScript file. As you can see, all of the HTML for the SPA views are included and rendered when the Index page is rendered by ASP.Net MVC. This means that when the user navigates to each page of the app, the HTML is already present locally in their browser. So no round trip to the server is needed to render the page. KendoUI and our application logic will be responsible for displaying each "page" of the application at the appropriate time.
+
+Additionally, a site-wide **Site.css** and **app.js** are required. MVC provides the framework for the single page, but the plumbing must be included.
 
 A large amount of the structure is therefore included in **_Layout.cshtml** (portions ommitted for brevity):
 
@@ -51,6 +61,9 @@ A large amount of the structure is therefore included in **_Layout.cshtml** (por
         <script src="@Url.Content("~/js/libs/jquery-2.0.0.min.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/js/libs/kendo.all.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/js/debug/app.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/js/app/mainView.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/js/app/salesView.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/js/app/socialView.js")" type="text/javascript"></script>
     </body>
 
 Obviously, there are also required references to various Kendo CSS (in **&lt;head&gt;**):
@@ -78,7 +91,7 @@ anonymous function and added to the Window object:
 
         return (window.musicDashboard = musicDashboard);
 
-    }(window));
+    }(window, window.jQuery, window.kendo));
 
 The musicDashboard object has a setup method that initilizes the router member to a new Kendo UI Router object.
 The Router object allows you to define your application's URLs. This means they can be shared to provide deep linking to your application.
@@ -91,7 +104,7 @@ You can read more about the [Kendo Router](http://www.kendoui.com/blogs/teamblog
 
             this.router = new kendo.Router();
 
-            //setup views
+            this.setupViews();
             this.setupRoutes();
 
             this.router.start();
@@ -116,7 +129,7 @@ callback method and routes defined for each view in the Music Dashboard applicat
 
                 that.router.route("/", function () {});
 
-                that.router.route("/sales", function () {});
+                that.router.route("/sales(/:target)", function () {});
 
                 that.router.route("/social", function () {});
 
@@ -129,8 +142,6 @@ make sure the top navigation has CSS classes applied correctly and finally creat
 
                 that.router.route("/", function () {
 
-                    console.log("home");
-
                     //destroy other views or they will be markup artifacts on the screen
                     that.salesView.destroy();
                     that.socialView.destroy();
@@ -140,7 +151,7 @@ make sure the top navigation has CSS classes applied correctly and finally creat
                     $(".nav-music-icon").addClass("main-nav-item-icon-selected");
                     $(".nav-music").addClass("main-nav-item-selected");
 
-                    that.createMainView();
+                    window.musicDashboard.mainViewLogic.createMainView();
 
                 });
 
