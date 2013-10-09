@@ -10,11 +10,11 @@ publish: true
 
 ![sales-overview](images/sales-overview.png)
 
-This page is constructed to show a collection of DataViz graphs, exposing several different views of store data. The page is domiated by a general sales graph, which can be filtered by five different dimensions, selectable by the buttons to the left of graph.
+This page is constructed to show a collection of DataViz graphs, exposing several different views of store data. The page is dominated by a general sales graph, which can be filtered by five different dimensions, selectable by the buttons to the left of graph.
 
 Two smaller graphs present data grouped by genre: Sales and Searches. These views provide a way to change the type of chart shown, changing the presentation of the data based on user selection of the graph type. The data can also be changed between Weekly, Monthly and Yearly data.
 
-This page is contained in the following files: **app/views/sales.html**, **app/sales-view.js**, and **Content/sales-view.css**.
+This page is contained in the following files: **Views/Home/salesView.cshtml**, **js/app/salesView.js**, and **Content/sales-view.css**.
 
 ## Changing Chart Type Dynamically
 
@@ -46,14 +46,14 @@ Note the **change-genre-sales-chart-type** class on the governing **&lt;span&gt;
 
 	$(".chart-type-item", ".change-genre-sales-chart-type").click(function (e) {
         e.preventDefault();
-        changeChartType.call(this, ".sales-by-genre-chart", ".change-genre-sales-chart-type");
+        that.changeChartType.call(this, ".sales-by-genre-chart", ".change-genre-sales-chart-type", that);
     });
 
 **changeChartType** is a function that performs the chart type change, taking two parameters: the class of the chart to change and the class of the governing **&lt;span&gt;** containing the buttons. The use of the **call()** invocation, along with passing **this** tells the function to perform as a member of the button, rather than globally.
 
-	function changeChartType(chartSelector, parentChartType) {
+	function changeChartType(chartSelector, parentChartType, that) {
 
-        removeSelectedGenreSalesType(parentChartType);
+        that.removeSelectedGenreSalesType(parentChartType);
 
         var $this = $(this),
             chartType = $this.data("charttype"),
@@ -63,8 +63,15 @@ Note the **change-genre-sales-chart-type** class on the governing **&lt;span&gt;
 
         $this.addClass("chart-type-" + chartType + "-selected");
 
-        for (i = 0; i < chart.options.series.length; i++) {
+        if (chartType == "stacked-bar" || chartType == "bar") {
+            chart.options.categoryAxis.labels.rotation = 0;
+            chart.options.valueAxis.labels.rotation = 70;
+        } else {
+            chart.options.categoryAxis.labels.rotation = 70;
+            chart.options.valueAxis.labels.rotation = 0;
+        }
 
+        for (i = 0; i < chart.options.series.length; i++) {
             if (chartType !== "stacked-bar") {
                 chart.options.series[i].type = chartType;
                 chart.options.series[i].stack = false;
@@ -75,7 +82,6 @@ Note the **change-genre-sales-chart-type** class on the governing **&lt;span&gt;
 
             chart.options.series[i].color = colors[i];
             chart.options.series[i].opacity = 1;
-            
         }
 
         chart.redraw();
@@ -125,14 +131,14 @@ The **genre-sales-tab** class' click event handler is then defined in the Javasc
 
         $this.addClass("time-sales-tab-selected");
 
-        salesByGenreChartDataSource
+        that.salesByGenreChartDataSource
             .options.transport.read.url = "api/salesbygenre/" + period;
 
         $('.sales-by-genre-chart')
             .data('kendoChart')
             .options.categoryAxis.labels = getLabelOptions(period);
 
-        salesByGenreChartDataSource.read();
+        that.salesByGenreChartDataSource.read();
     });
 
 This function is set to only update the data if a different set of data has been selected, then updates the selection in the UI.
