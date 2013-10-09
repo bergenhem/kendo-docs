@@ -11,7 +11,7 @@ publish: true
 
 The main page constitutes the landing page of the Dashboard, and the navigation strip, an overview of recent sales far various periods of time, top singles and albums, and a series of gauges showing hourly data. For this view, we use a declarative approach similar to the Kendo Music Store itself, also using the **data-** attributes, and the [Kendo MVVM](http://demos.kendoui.com/web/mvvm/index.html) framework.
 
-This page is contained in the files **app/views/main.html**, **app/main-view.js**, and **Content/home-view.css**
+This page is contained in the files **Views/Home/mainView.cshtml**, **js/app/mainView.js**, and **Content/home-view.css**
 
 ## Displaying the Sales tabs
 To implement the listings of Sales for the various times, we start with some simple HTML to define the categories to display:
@@ -35,9 +35,9 @@ To implement the listings of Sales for the various times, we start with some sim
         </span>
     </section>
 
-Each of the **amount** &lt;spans&gt;s contain the **data-bind** attribute that specifies the name of the data in the scheme to place in that view.
+Each of the **amount** &lt;spans&gt;s contain the **data-bind** attribute that specifies the name of the data in the schema to place in that view.
 
-This data is bound to an external **DataSource**, which is pulled and bound to these display widgets in the **main-view.js** file:
+This data is bound to an external **DataSource**, which is pulled and bound to these display widgets in the **mainView.js** file:
 
 	var totals = new kendo.data.DataSource({
         transport: {
@@ -55,15 +55,14 @@ This data is bound to an external **DataSource**, which is pulled and bound to t
           }  
         },
         change: function (data) {
-            console.log(data.items[0]);
             kendo.bind($("#home-view"), data.items[0]);
         }
     });
     totals.read();
 
-Note that the value names in the scheme data of the DataSource match the **data-bind** tags of the views: **data-bind="text: lastMonth"** matches that tag to the **lastMonth** value pulled from the DataSource.
+Note that the value names in the schema data of the DataSource match the **data-bind** tags of the views: **data-bind="text: lastMonth"** matches that tag to the **lastMonth** value pulled from the DataSource.
 
-The entirety of the view information in **main.html** is wrapped in the following tag
+The entirety of the view information in **mainView.cshtml** is wrapped in the following tag
 
 	<section id="home-view">
 
@@ -95,7 +94,7 @@ Each requires a Kendo template, to render the invididual items in the proper man
 
 There are several differences in this approach to that used in the Kendo Music Store - the use of a remote DataSource facilitates some of the detail be moved around.
 
-The bindings are invoked in the JavaScript (int **main-view.js**); this is also where the templates are applied and the DataSource is bound.
+The bindings are invoked in the JavaScript (in **mainView.js**); this is also where the templates are applied and the DataSource is bound.
 
 	var dataSource = new kendo.data.DataSource({
         transport: {
@@ -105,15 +104,14 @@ The bindings are invoked in the JavaScript (int **main-view.js**); this is also 
             }
         }
     });
-
+    var template = kendo.template($("#top-single-template").html());
     $("#topSinglesListView").kendoListView({
         dataSource: dataSource,
-        template: kendo.template($("#top-single-template").html()),
+        template: template,
         dataBound: function (e) {
-            // handle event
             $(".top-single-song-list-item").on("click", function (e) {
                 e.preventDefault();
-                window.location = "#/sales?target=singles";
+                window.location = "#/sales/singles";
             });
         }
     });
@@ -122,7 +120,7 @@ The **Albums** ListView is constructed similarly, with the same structure.
 
 ## Creating a Gauge with a custom background
 
-The radial gauges on this page use a custom background image of a record. EVery gauge is contained within its own **&lt;div&gt;**, as shown below:
+The radial gauges on this page use a custom background image of a record. Every gauge is contained within its own **&lt;div&gt;**, as shown below:
 
 	<div class="gauge-container">
     	<div class="albums-per-hour home-gauge-box"></div>
@@ -136,11 +134,11 @@ The key here is the **class** attribute "**gauge-container** assigned to each.
 Looking at the CSS for this page in **home-view.css**, the background image is defined in the **background-image** attribute:
 
 	.gauge-container {
- 		height: 250px;
-  		display: inline-block;
- 		margin: 0 40px;
- 		background-image: url("../img/record-gauge-home.png");
- 	  	background-repeat: no-repeat;
-  	  	background-position-y: 15px;
-  	  	width: 225px;
+ 		display: inline-block;
+        margin: 0 40px;
+        width: 225px;
+        height: 250px;
+        background-image: url("../img/record-gauge-home.png");
+        background-position: 0 15px;
+        background-repeat: no-repeat;
 	}
