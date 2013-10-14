@@ -108,11 +108,6 @@ If set to true, the user can zoom in/out the contents of the view using the pinc
 
 ## Methods
 
-### destroy
-Prepares the **View** for safe removal from DOM. Detaches all event handlers and removes jQuery.data attributes to avoid memory leaks. Calls destroy method of any child Kendo widgets.
-
-> **Important:** This method does not remove the View element from DOM.
-
 ### contentElement
 
 Retrieves the current content holder of the View - this is the content element if the View is stretched or the scroll container otherwise.
@@ -129,6 +124,36 @@ Retrieves the current content holder of the View - this is the content element i
     function getContentElement() {
         var view = $("#myView").data("kendoMobileView");
         console.log(view.contentElement());
+    }
+
+    new kendo.mobile.Application();
+    </script>
+
+### destroy
+
+Prepares the **View** for safe removal from DOM. Detaches all event handlers and removes jQuery.data attributes to avoid memory leaks. Calls destroy method of any child Kendo widgets.
+
+> **Important:** This method does not remove the View element from DOM.
+
+### enable
+
+Enables or disables the user interaction with the view and its contents.
+
+#### Parameters
+
+##### enable `Boolean`
+
+Omitting the parameter or passing `true` enables the view. Passing `false` disables the view.
+
+#### Example - disable a view
+
+    <div data-role="view" id="myView">
+        <a data-role="button" data-click="disableView">Tap here</a>
+    </div>
+
+    <script>
+    function disableView() {
+        $("#myView").data("kendoMobileView").enable(false);
     }
 
     new kendo.mobile.Application();
