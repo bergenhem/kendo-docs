@@ -9,7 +9,7 @@ publish: true
 > **Important:** Current WP8 versions do not support web fonts loaded from a local CSS when used in PhoneGap or HTML5 applications!
 Unfortunately there are no known workarounds yet. Use images for icons when targeting WP8 applications.
 
-Kendo UI Mobile includes 33 integrated font icons, which can be used directly in a Kendo UI Mobile project by specifying a data-icon attribute with one of the following icon names
+Kendo UI Mobile includes 34 integrated font icons, which can be used directly in a Kendo UI Mobile project by specifying a data-icon attribute with one of the following icon names
 (supported by all Button widgets and the ListView items):
 
 <ul class="icon-block">
@@ -37,6 +37,7 @@ Kendo UI Mobile includes 33 integrated font icons, which can be used directly in
     <li><span class="km-icon km-organize"></span><br/>organize</li>
     <li><span class="km-icon km-pause"></span><br/>pause</li>
     <li><span class="km-icon km-play"></span><br/>play</li>
+    <li><span class="km-icon km-phone"></span><br/>phone</li>
     <li><span class="km-icon km-recents"></span><br/>recents</li>
     <li><span class="km-icon km-refresh"></span><br/>refresh</li>
     <li><span class="km-icon km-reply"></span><br/>reply</li>
@@ -52,7 +53,7 @@ Kendo UI Mobile includes 33 integrated font icons, which can be used directly in
     <li><span class="km-icon km-wifi"></span><br/>wifi</li>
 </ul>
 
-In addition to these 33 icons, there are more icons available inside the font file distributed with Kendo UI Mobile. For a full list of them, check the end of this document.
+In addition to these 34 icons, there are more icons available inside the font file distributed with Kendo UI Mobile. For a full list of them, check the end of this document.
 
 # Creating custom icon font
 
@@ -300,7 +301,7 @@ Again if only several icons should be overridden, specify them with their classe
 
 ## Additional icons in Kendo UI Mobile font
 
-The icon font shipped with Kendo UI Mobile contains much more icons than the 33 defined ones (about 10 times more). The reason for this is that we wanted to keep our CSS small. In order to use them,
+The icon font shipped with Kendo UI Mobile contains much more icons than the 34 defined ones (about 10 times more). The reason for this is that we wanted to keep our CSS small. In order to use them,
 you can choose an icon from the list below and add a definition for it in your CSS using its Unicode character code (be sure to have a km- prefix):
 
     <style>
