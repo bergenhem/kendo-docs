@@ -27,7 +27,7 @@ Name the model "Northwind.edmx" and click "Next". This will start the "Entity Da
             public int ProductID { get; set; }
             // The ProductName property is required
             [Required]
-            public int ProductName { get; set; }
+            public string ProductName { get; set; }
             // Use the Integer editor template for the UnitsInStock property
             [UIHint("Integer")]
             public short? UnitsInStock { get; set; }

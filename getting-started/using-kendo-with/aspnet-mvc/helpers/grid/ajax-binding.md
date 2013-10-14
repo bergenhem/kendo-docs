@@ -125,7 +125,7 @@ This tutorial will show how to use view models and Kendo UI Grid for ASP.NET MVC
         public class ProductViewModel
         {
             public int ProductID { get; set; }
-            public int ProductName { get; set; }
+            public string ProductName { get; set; }
             public short? UnitsInStock { get; set; }
         }
 1. Modify the grid declaration and make it use `ProductViewModel` instead of `Product`.
