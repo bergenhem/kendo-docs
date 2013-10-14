@@ -25,11 +25,11 @@ Name the application "KendoGridAjaxBinding". If you decided not to use the Kendo
 to add Kendo UI Complete for ASP.NET MVC to the application.
 1.  Add a new "Entity Framework Data Model". Right click the `~/Models` folder in the solution explorer and pick "Add ->  New Item". Choose "Data -> ADO.NET Entity Data Model" in the "Add New Item" dialog.
 Name the model "Northwind.edmx" and click "Next". This will start the "Entity Data Model Wizard".
-![New entity data model](images/entity-data-model.png)
+![New entity data model](images/grid-entity-data-model.png)
 1.  Pick the "Generate from database" option and click "Next". Configure a connection to the Northwind database. Click "Next".
-![Choose the connection](images/entity-data-model.png)
+![Choose the connection](images/grid-entity-data-model.png)
 1.  Choose the "Products" table from the "Which database objects do you want to include in your model?". Leave all other options as they are set by default. Click "Finish".
-![Choose the Products table](images/database-objects.png)
+![Choose the Products table](images/grid-database-objects.png)
 1.  Open HomeController.cs and add a new action method which will return the Products as JSON. The grid will make ajax requests to this action.
 
         public ActionResult Products_Read()
@@ -105,7 +105,7 @@ Decorate that parameter with the `Kendo.Mvc.UI.DataSourceRequestAttribute`. That
                   .Sortable() // Enable sorting
             )
 1. Build and run the application
-![Final result](images/bound-grid.png)
+![Final result](images/grid-bound-grid.png)
 
 The `ToDataSourceResult` method uses the `DataSourceRequest` parameter and LINQ expressions to page, sort, filter and group your data.
 The JSON response of the action method will contain only a single page of data. The grid will be bound to that data.
