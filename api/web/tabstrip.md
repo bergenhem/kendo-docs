@@ -359,7 +359,7 @@ Disables (**false**) or enables (**true**) a tab(s) of a **TabStrip**.
 
 #### Parameters
 
-##### element `String|Element|jQuery|jQuery`
+##### element `String|Element|jQuery`
 
 The target tab(s), specified as a selector, to be enabled (**true**) or disabled
 (**false**).

@@ -263,7 +263,7 @@ Enables (**true**) or disables (**false**) the specified item(s) of the
 
 #### Parameters
 
-##### element `String | Selector`
+##### element `String|Element|jQuery`
 
 The **PanelBar** item(s) to be enabled (**true**) or disabled (**false**), expressed as a
 string containing a selector expression or represented by a
