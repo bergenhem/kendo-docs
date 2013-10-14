@@ -21,20 +21,31 @@ user interactions. Setting this option to **false** will disable all animations.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        animation: {
-            // fade-out current tab over 1000 milliseconds
-            close: {
-                duration: 1000,
-                effects: "fadeOut"
-            },
-           // fade-in new tab over 500 milliseconds
-           open: {
-               duration: 500,
-               effects: "fadeIn"
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                // fade-out current tab over 1000 milliseconds
+                close: {
+                    duration: 1000,
+                    effects: "fadeOut"
+                },
+               // fade-in new tab over 500 milliseconds
+               open: {
+                   duration: 500,
+                   effects: "fadeIn"
+               }
            }
-       }
-    });
+        });
+    </script>
 
 ### animation.close `Object`
 
@@ -42,14 +53,25 @@ The visual animation(s) that will be used when the current tab is closed.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        animation: {
-            close: {
-                duration: 200,
-                effects: "fadeOut"
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                close: {
+                    duration: 200,
+                    effects: "fadeOut"
+                }
             }
-        }
-    });
+        });
+    </script>
 
 ### animation.close.duration `Number`*(default: 200)*
 
@@ -57,15 +79,24 @@ The number of milliseconds used for the visual animation when the current tab is
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        animation: {
-            close: {
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-                       duration: 1000
-
-                   }
-      }
-    });
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                close: {
+                    duration: 1000
+                }
+            }
+        });
+    </script>
 
 ### animation.close.effects `String`
 
@@ -74,14 +105,25 @@ is closed. By default not specified - uses the opening animation with reverse.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        animation: {
-            close: {
-                duration: 1000,
-                effects: "fadeOut"
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                close: {
+                    duration: 1000,
+                    effects: "fadeOut"
+                }
             }
-        }
-    });
+        });
+    </script>
 
 ### animation.open `Object`
 
@@ -89,14 +131,25 @@ The visual animation(s) that will be used when the new tab is shown.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        animation: {
-            open: {
-                duration: 200,
-                effects: "expand:vertical"
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    duration: 200,
+                    effects: "expand:vertical"
+                }
             }
-        }
-    });
+        });
+    </script>
 
 ### animation.open.duration `Number`*(default: 200)*
 
@@ -104,22 +157,50 @@ The number of milliseconds used for the visual animation when a new tab is shown
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-     animation: {
-          open: {
-              duration: 1000
-          }
-       }
-    });
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+           animation: {
+              open: {
+                  duration: 1000
+              }
+           }
+        });
+    </script>
 
 ### animation.open.effects `String`*(default: "expand:vertical fadeIn")*
 
 A whitespace-separated string of animation effects that are used when a new tab is shown. Options include
 **"expand:vertical"** and **"fadeIn"**.
 
-### animation.open.show `Boolean`*(default: true)*
+#### Example
 
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        });
+    </script>
 
 ### collapsible `Boolean`*(default: false)*
 
@@ -127,9 +208,20 @@ Specifies whether the TabStrip should be able to collapse completely when clicki
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        collapsible: true
-    });
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            collapsible: true
+        });
+    </script>
 
 ### dataContentField `String`*(default: "")*
 
@@ -138,11 +230,15 @@ the tab content element.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataContentField: "Content",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataContentField: "Content",
+            dataSource: data
+        });
+    </script>
 
 ### dataContentUrlField `String`*(default: "")*
 
@@ -151,11 +247,15 @@ the ajax loaded tab content.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataContentUrlField: "ContentUrl",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataContentUrlField: "ContentUrl",
+            dataSource: data
+        });
+    </script>
 
 ### dataImageUrlField `String`*(default: "")*
 
@@ -164,11 +264,15 @@ the tab.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataImageUrlField: "ImageUrl",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataImageUrlField: "ImageUrl",
+            dataSource: data
+        });
+    </script>
 
 ### dataSpriteCssClass `String`*(default: "")*
 
@@ -177,11 +281,15 @@ the tab.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataSpriteCssClass: "CssClass",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataSpriteCssClass: "CssClass",
+            dataSource: data
+        });
+    </script>
 
 ### dataTextField `String`*(default: "")*
 
@@ -189,10 +297,14 @@ the tab.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataSource: data
+        });
+    </script>
 
 ### dataUrlField `String`*(default: "")*
 
@@ -201,11 +313,15 @@ tab.
 
 #### Example
 
-    $("#tabstrip").kendoTabStrip({
-        dataTextField: "Name",
-        dataUrlField: "Url",
-        dataSource: data
-    });
+    <div id="tabstrip"></div>
+
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            dataTextField: "Name",
+            dataUrlField: "Url",
+            dataSource: data
+        });
+    </script>
 
 ## Fields
 
@@ -221,8 +337,19 @@ Activates a tab specified as a selector. Note: Invoking this method will not tri
 
 #### Example
 
-    var tabToActivate = $("#tab1");
-    $("#tabStrip").data("kendoTabStrip").activateTab(tabToActivate);
+    <div id="tabstrip">
+        <ul>
+            <li id="tab1">Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabToActivate = $("#tab1");
+        $("#tabstrip").kendoTabStrip().data("kendoTabStrip").activateTab(tabToActivate);
+    </script>
 
 #### Parameters
 
@@ -236,29 +363,35 @@ Appends a tab to the collection of tabs in a **TabStrip**.
 
 #### Example
 
-    tabStrip.append(
-        [{
-            text: "Item 1",
-            url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
-        },
-        {
-            text: "<b>Item 2</b>",
-            encoded: false,                             // Allows use of HTML for item text
-            content: "text"                             // Content for the content element
-        },
-        {
-            text: "Item 3",
-            contentUrl: "partialContent.html"           // From where to load the item content
-        },
-        {
-            text: "Item 4",
-            imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
-        },
-        {
-            text: "Item 5",
-            spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
-        }]
-    );
+    <div id="tabstrip">
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.append(
+            [{
+                text: "Item 1",
+                url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
+            },
+            {
+                text: "<b>Item 2</b>",
+                encoded: false,                             // Allows use of HTML for item text
+                content: "text"                             // Content for the content element
+            },
+            {
+                text: "Item 3",
+                contentUrl: "partialContent.html"           // From where to load the item content
+            },
+            {
+                text: "Item 4",
+                imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
+            },
+            {
+                text: "Item 5",
+                spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
+            }]
+        );
+    </script>
 
 #### Parameters
 
@@ -279,7 +412,19 @@ Obtains the DOM element that encloses tab content by its tab index in the **TabS
 
 #### Obtain the content element representing the first tab in a TabStrip
 
-    var tabContent = $("#tabStrip").data("kendoTabStrip").contentElement(0);
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        console.log(tabStrip.contentElement(0));
+    </script>
 
 #### Parameters
 
@@ -300,7 +445,19 @@ The difference between contentElement and contentHolder is that contentHolder re
 
 #### Obtain the content holder representing the first tab in a TabStrip
 
-    var tabContent = $("#tabStrip").data("kendoTabStrip").contentHolder(0);
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        console.log(tabStrip.contentHolder(0));
+    </script>
 
 #### Parameters
 
@@ -318,8 +475,19 @@ Deactivates a tab specified as a selector. Note: Invoking this method will not t
 
 #### Example
 
-    var tabToDeactivate = $("#tab1");
-    $("#tabStrip").data("kendoTabStrip").deactivateTab(tabToDeactivate);
+    <div id="tabstrip">
+        <ul>
+            <li id="tab1">Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabToDeactivate = $("#tab1");
+        $("#tabstrip").kendoTabStrip().data("kendoTabStrip").deactivateTab(tabToDeactivate);
+    </script>
 
 #### Parameters
 
@@ -334,14 +502,41 @@ Prepares the **TabStrip** for safe removal from DOM. Detaches all event handlers
 
 #### Example
 
-    var tabStrip = $("#tabStrip").data("kendoTabStrip");
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-    // detach events
-    tabStrip.destroy();
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+
+        // destroy the widget
+        tabStrip.destroy();
+    </script>
 
 ### disable
 
 Disables a tab(s) of a **TabStrip**.
+
+#### Example
+
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.disable(tabStrip.tabGroup.eq(0));
+    </script>
 
 #### Parameters
 
@@ -356,6 +551,23 @@ The target tab(s), specified as a selector, to be disabled.
 ### enable
 
 Disables (**false**) or enables (**true**) a tab(s) of a **TabStrip**.
+
+#### Example
+
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.enable(tabStrip.tabGroup.eq(0), false);
+        tabStrip.enable(tabStrip.tabGroup.eq(0), true);
+    </script>
 
 #### Parameters
 
@@ -379,30 +591,40 @@ Inserts a newly-created tab after a specified tab.
 
 #### Example
 
-    tabStrip.insertAfter(
-        [{
-            text: "Item 1",
-            url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
-        },
-        {
-            text: "<b>Item 2</b>",
-            encoded: false,                             // Allows use of HTML for item text
-            content: "text"                             // Content for the content element
-        },
-        {
-            text: "Item 3",
-            contentUrl: "partialContent.html"           // From where to load the item content
-        },
-        {
-            text: "Item 4",
-            imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
-        },
-        {
-            text: "Item 5",
-            spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
-        }],
-        referenceItem
-    );
+    <div id="tabstrip">
+        <ul>
+            <li>Tab</li>
+        </ul>
+        <div>Content</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.insertAfter(
+            [{
+                text: "Item 1",
+                url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
+            },
+            {
+                text: "<b>Item 2</b>",
+                encoded: false,                             // Allows use of HTML for item text
+                content: "text"                             // Content for the content element
+            },
+            {
+                text: "Item 3",
+                contentUrl: "partialContent.html"           // From where to load the item content
+            },
+            {
+                text: "Item 4",
+                imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
+            },
+            {
+                text: "Item 5",
+                spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
+            }],
+            tabStrip.tabGroup.eq(0)
+        );
+    </script>
 
 #### Parameters
 
@@ -425,30 +647,40 @@ Inserts a newly-created tab before a specified tab.
 
 #### Example
 
-    tabStrip.insertBefore(
-        [{
-            text: "Item 1",
-            url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
-        },
-        {
-            text: "<b>Item 2</b>",
-            encoded: false,                             // Allows use of HTML for item text
-            content: "text"                             // Content for the content element
-        },
-        {
-            text: "Item 3",
-            contentUrl: "partialContent.html"           // From where to load the item content
-        },
-        {
-            text: "Item 4",
-            imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
-        },
-        {
-            text: "Item 5",
-            spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
-        }],
-        referenceItem
-    );
+    <div id="tabstrip">
+        <ul>
+            <li>Tab</li>
+        </ul>
+        <div>Content</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.insertBefore(
+            [{
+                text: "Item 1",
+                url: "http://www.kendoui.com"               // Link URL if navigation is needed, optional.
+            },
+            {
+                text: "<b>Item 2</b>",
+                encoded: false,                             // Allows use of HTML for item text
+                content: "text"                             // Content for the content element
+            },
+            {
+                text: "Item 3",
+                contentUrl: "partialContent.html"           // From where to load the item content
+            },
+            {
+                text: "Item 4",
+                imageUrl: "http://www.kendoui.com/test.jpg" // Item image URL, optional.
+            },
+            {
+                text: "Item 5",
+                spriteCssClass: "imageClass3"               // Item image sprite CSS class, optional.
+            }],
+            tabStrip.tabGroup.eq(0)
+        );
+    </script>
 
 #### Parameters
 
@@ -469,13 +701,44 @@ A reference tab to insert the new item before
 
 Gets the list of DOM elements that represent the tabs.
 
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        console.log(tabStrip.items());
+    </script>
+
 #### Returns
 
-`HTMLCollection` the tabs as jQuery objects.
+`HTMLCollection` the tabs as an HTML collection of elements.
 
 ### reload
 
 Reloads TabStrip tab(s) via AJAX.
+
+    <div id="tabstrip"></div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            dataSource: [{
+                text: "Tab 1",
+                contentUrl: "partialContent1.html"
+            },
+            {
+                text: "Tab 2",
+                contentUrl: "partialContent2.html"
+            }]
+        }).data("kendoTabStrip");
+
+        tabStrip.reload("li:first");
+    </script>
 
 #### Parameters
 
@@ -493,7 +756,19 @@ Removes a specified tab from a TabStrip.
 
 #### Remove a tab with ID, tab1 from a TabStrip
 
-    tabStrip.remove("#tab1");
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.remove("li:last");
+    </script>
 
 #### Parameters
 
@@ -512,11 +787,21 @@ currently selected tab.
 
 #### Example
 
-    tabStrip.select("#tab1");
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-#### Example
+    <script>
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
 
-    tabStrip.select(1);
+        tabStrip.select("li:first");        // Select by jQuery selector
+        tabStrip.select(1);                 // Select by index
+    </script>
 
 #### Parameters
 
@@ -536,31 +821,54 @@ Triggered just after a tab is being made visible, but before the end of the anim
 
 #### Attach activate event handler during initialization; detach via unbind()
 
-    // event handler for activate
-    var onActivate = function(e) {
-        // access the activated item via e.item (Element)
-    };
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-    // attach activate event handler during initialization
-    var tabStrip = $("#tabStrip").kendoTabStrip({
-        activate: onActivate
-    });
+    <script>
+        // event handler for activate
+        var onActivate = function(e) {
+            // access the activated item via e.item (Element)
 
-    // detach activate event handler via unbind()
-    tabStrip.data("kendoTabStrip").unbind("activate", onActivate);
+            // detach activate event handler via unbind()
+            tabStrip.unbind("activate", onActivate);
+        };
+
+        // attach activate event handler during initialization
+        var tabStrip = $("#tabStrip").kendoTabStrip({
+            activate: onActivate
+        }).data("kendoTabStrip");
+    </script>
 
 #### Attach activate event handler via bind(); detach via unbind()
 
-    // event handler for activate
-    var onActivate = function(e) {
-        // access the activated item via e.item (Element)
-    };
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-    // attach activate event handler via bind()
-    $("#tabStrip").data("kendoTabStrip").bind("activate", onActivate);
+    <script>
+        // event handler for activate
+        var onActivate = function(e) {
+            // access the activated item via e.item (Element)
 
-    // detach activate event handler via unbind()
-    $("#tabStrip").data("kendoTabStrip").unbind("activate", onActivate);
+            // detach activate event handler via unbind()
+            tabStrip.unbind("activate", onActivate);
+        };
+
+        // attach activate event handler via bind()
+        var tabStrip = $("#tabStrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.bind("activate", onActivate);
+    </script>
 
 #### Event Data
 
@@ -576,6 +884,34 @@ The content element of the activated tab.
 
 Triggered when content is fetched from an AJAX request.
 
+#### Attach contentLoad event handler during initialization; detach via unbind()
+
+    <div id="tabstrip">
+    </div>
+
+    <script>
+        // event handler for select
+        var onError = function(e) {
+            // access the selected item via e.item (Element)
+
+            // detach select event handler via unbind()
+            tabStrip.unbind("error", onError);
+        };
+
+        // attach select event handler during initialization
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            dataSource: [{
+                text: "Tab 1",
+                contentUrl: "partialContent1.html"
+            },
+            {
+                text: "Tab 2",
+                contentUrl: "partialContent2.html"
+            }],
+            error: onError
+        }).data("kendoTabStrip");
+    </script>
+
 #### Event Data
 
 ##### e.item `Element`
@@ -589,6 +925,32 @@ The loaded content element that is retrieved via AJAX.
 ### error
 
 Triggered when an AJAX request results in an error.
+
+#### Attach error event handler during initialization; detach via unbind()
+
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
+
+    <script>
+        // event handler for select
+        var onError = function(e) {
+            // access the selected item via e.item (Element)
+
+            // detach select event handler via unbind()
+            tabStrip.unbind("error", onError);
+        };
+
+        // attach select event handler during initialization
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            error: onError
+        }).data("kendoTabStrip");
+    </script>
 
 #### Event Data
 
@@ -606,31 +968,54 @@ Triggered before a tab is selected.
 
 #### Attach select event handler during initialization; detach via unbind()
 
-    // event handler for select
-    var onSelect = function(e) {
-        // access the selected item via e.item (Element)
-    };
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-    // attach select event handler during initialization
-    var tabStrip = $("#tabStrip").kendoTabStrip({
-        select: onSelect
-    });
+    <script>
+        // event handler for select
+        var onSelect = function(e) {
+            // access the selected item via e.item (Element)
 
-    // detach select event handler via unbind()
-    tabStrip.data("kendoTabStrip").unbind("select", onSelect);
+            // detach select event handler via unbind()
+            tabStrip.unbind("select", onSelect);
+        };
+
+        // attach select event handler during initialization
+        var tabStrip = $("#tabstrip").kendoTabStrip({
+            select: onSelect
+        }).data("kendoTabStrip");
+    </script>
 
 #### Attach select event handler via bind(); detach via unbind()
 
-    // event handler for select
-    var onSelect = function(e) {
-        // access the selected item via e.item (Element)
-    };
+    <div id="tabstrip">
+        <ul>
+            <li>Tab 1</li>
+            <li>Tab 2</li>
+        </ul>
+        <div>Content 1</div>
+        <div>Content 2</div>
+    </div>
 
-    // attach select event handler via bind()
-    $("#tabStrip").data("kendoTabStrip").bind("select", onSelect);
+    <script>
+        // event handler for select
+        var onSelect = function(e) {
+            // access the selected item via e.item (Element)
 
-    // detach select event handler via unbind()
-    $("#tabStrip").data("kendoTabStrip").unbind("select", onSelect);
+            // detach select event handler via unbind()
+            tabStrip.unbind("select", onSelect);
+        };
+
+        // attach select event handler via bind()
+        var tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        tabStrip.bind("select", onSelect);
+    </script>
 
 #### Event Data
 
