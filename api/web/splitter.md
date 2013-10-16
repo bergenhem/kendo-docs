@@ -205,8 +205,6 @@ Any data that is necessary to be sent to the server.
 
 ### append
 
-**The `append` method has been introduced after the Q2 2013 Kendo UI release (2013.2.716). It is available in internal builds.**
-
 Appends a new pane. The method returns the pane element, so it can be populated with arbitrary content, if `contentUrl` is not set.
 Invoking this method will force the widget to redraw and it will trigger `layoutChange` and `resize` events.
 
@@ -306,8 +304,6 @@ The pane to be expanded.
 
 ### insertAfter
 
-**The `insertAfter` method has been introduced after the Q2 2013 Kendo UI release (2013.2.716). It is available in internal builds.**
-
 Inserts a new pane after the specified one. The method returns the pane element, so it can be populated with arbitrary content, if `contentUrl` is not set.
 Invoking this method will force the widget to redraw and it will trigger `layoutChange` and `resize` events.
 
@@ -339,8 +335,6 @@ The existing pane after which the new one will be inserted.
     </script>
 
 ### insertBefore
-
-**The `insertBefore` method has been introduced after the Q2 2013 Kendo UI release (2013.2.716). It is available in internal builds.**
 
 Inserts a new pane before the specified one. The method returns the pane element, so it can be populated with arbitrary content, if `contentUrl` is not set.
 Invoking this method will force the widget to redraw and it will trigger `layoutChange` and `resize` events.
@@ -425,8 +419,6 @@ The minimum size value of the pane defined as pixels (i.e. "200px") or as a perc
     </script>
 
 ### remove
-
-**The `remove` method has been introduced after the Q2 2013 Kendo UI release (2013.2.716). It is available in internal builds.**
 
 Removes one or more panes. The method returns the Splitter instance.
 Invoking this method will force the widget to redraw and it will trigger `layoutChange` and `resize` events.
