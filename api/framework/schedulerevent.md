@@ -99,7 +99,7 @@ If set to `true` the event is "all day". By default events are not all day.
 
 ### recurrenceException `String` *(default: undefined)*
 
-The recurrence exceptions. A list of colon separated dates formatted using the `yyyyMMddTHHmmssZ` format string.
+The recurrence exceptions. A list of semicolon separated dates formatted using the `yyyyMMddTHHmmssZ` format string.
 
 > **Important**: The dates should be encoded in UTC.
 
