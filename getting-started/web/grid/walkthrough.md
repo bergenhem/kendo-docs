@@ -157,7 +157,9 @@ manually, using code from the above example.
 ### Column widths
 
 When Grid scrolling is enabled (by default, except for the widget MVC wrapper), the Grid table layout style is "fixed". This means that all width-less columns will be equally wide no matter what their content is.
-When Grid scrolling is disabled, the Grid table layout style is "auto", i.e. the column widths are determined by the browser and cell content, if not set explicitly.
+All set column widths will be obeyed no matter what the content is (if the content cannot fit, it will wrap or be clipped).
+When Grid scrolling is disabled, the Grid table layout style is "auto", i.e. the column widths are determined by the browser and cell content, if not set explicitly. The browser will try to obey all set column widths, but
+may readjust (expand) some columns, depending on their content.
 
 When creating the Grid from an HTML `table`, column widths can be set via `col` elements.
 
