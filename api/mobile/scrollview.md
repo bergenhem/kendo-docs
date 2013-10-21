@@ -195,11 +195,7 @@ The height of the ScrollView content. Supports `100%` if the ScrollView is embed
 
 ### enablePager `Boolean`*(default: true)*
 
-<<<<<<< HEAD
- If set to true the ScrollView will display a pager. By default pager is enabled.
-=======
 If set to `true` the ScrollView will display a pager. By default pager is enabled.
->>>>>>> 4ce8960... formatting and whitespace
 
 > **Important:** In case the total amount of displayed data is large, it is recommended to turn off the pager by setting `enablePager: false` in the configuration options or via `data-enable-pager="false"` data attribute.
 
@@ -240,13 +236,9 @@ If set to `true` the ScrollView will display a pager. By default pager is enable
 
 ### itemsPerPage `Number`*(default: 1)*
 
- Determines how many data items will be passed to the page template.
+Determines how many data items will be passed to the page template.
 
-<<<<<<< HEAD
- > **Important:** In order ensure smooth scrolling the **pageSize of the DataSource should be 6 times itemsPerPage amount** or higher. For example, if itemsPerPage is set to 4, then the pageSize must be 24 (4*6) or higher.
-=======
 > **Important:** In order ensure smooth scrolling the **pageSize of the DataSource should be 6 times itemsPerPage amount** or higher. For example, if `itemsPerPage` is set to 4, then the `pageSize` must be 24 (4*6) or higher.
->>>>>>> 4ce8960... formatting and whitespace
 
  **Applicable only in data bound mode.**
 
