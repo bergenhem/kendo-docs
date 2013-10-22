@@ -1,7 +1,7 @@
 ---
 title: kendo.ui.ProgressBar
 meta_title: Configuration, methods and events of Kendo UI ProgressBar
-meta_description: 
+meta_description: How to configure and control Kendo UI ProgressBar widget
 slug: api-web-progressbar
 relatedDocs: gs-web-progressbar-overview
 tags: api,web
@@ -16,7 +16,7 @@ Represents the Kendo UI ProgressBar widget. Inherits from [Widget](/api/framewor
 
 ### animation `Object`
 
-Configures the progress animation. Currently only setting animation duration is supported.
+Configures the progress animation. Currently only the duration of the animation could be set.
 
 #### Example - specify the duration of the progress animation
 
@@ -71,7 +71,7 @@ Specifies the number of chunks.
 
 ### enable `Boolean` *(default: true)*
 
-If set to `false` the widget will be disabled and will not allow changing the value. The widget is enabled by default.
+If set to `false` the widget will be disabled. It will still allow changing the value. The widget is enabled by default.
 
 #### Example - disable the widget on initialization.
 
@@ -153,6 +153,8 @@ Specifies if the progress status will be shown.
 
 Specifies the type of the **ProgressBar**. The supported types are **value**, **percent** and **chunk**.
 
+> **Important** The **chunk** progress type is not supported in Internet Explorer 7.
+
 #### Example - set the type of the ProgressBar
 
 	<div id="progressbar"></div>
@@ -176,6 +178,45 @@ The underlying value of the **ProgressBar**.
 	    value: 15
 	  });  
 	</script>
+
+## Fields
+
+### progressStatus `jQuery`
+
+The jQuery object which represents the progress status fields. This object could be empty if no progress status fields are currently existing in the DOM.
+
+#### Example - set custom progress status
+
+	<div id="progressbar"></div>
+	<script>
+      $("#progressbar").kendoProgressBar({
+        change: function(e) {
+          this.progressStatus.text("Custom status");
+        }
+      });
+
+      $("#progressbar").data("kendoProgressBar").value(10);
+    </script>
+
+### progressWrapper `jQuery`
+
+The jQuery object which represents the progress wrapper. This object could be empty if the progress has not started yet and the value is equal to the minimum value.
+
+#### Example - set custom styles to the progress wrapper
+
+	<div id="progressbar"></div>
+	<script>
+      $("#progressbar").kendoProgressBar({
+        change: function(e) {
+          this.progressWrapper.css({
+            "background-color": "#EE9F05",
+            "border-color": "#EE9F05"
+          });
+        }
+      });
+
+      $("#progressbar").data("kendoProgressBar").value(10);
+    </script>
 
 ## Methods
 
@@ -205,7 +246,17 @@ The argument, which defines whether to enable/disable the **ProgressBar**. If no
 
 ### value
 
-Gets or sets the value of the **ProgressBar**. It accepts a string, a number or `false` as a parameter. Setting the value to `false` will set the state of the **ProgressBar** to indeterminate. If no parameter is passed, it returns the underlying value.
+Gets or sets the value of the **ProgressBar**. It accepts a number, a string or `false` as a parameter. Setting the value to `false` will set the state of the **ProgressBar** to indeterminate. If no parameter is passed, it returns the underlying value.
+
+#### Parameters
+
+##### value `Number`
+
+The value to be set.
+
+#### Returns
+
+`Number` the value of the widget.
 
 #### Example - getting the current ProgressBar value
 
@@ -223,11 +274,27 @@ Gets or sets the value of the **ProgressBar**. It accepts a string, a number or 
       });
 	</script>
 
+#### Example - setting the value of the ProgressBar
+
+	<div id="progressbar"></div>
+	<script>
+	  $("#progressbar").kendoProgressBar({
+	    min: 10,
+	    max: 20,
+	    value: 15
+	  });
+
+	  $(function() {
+	    var pb = $("#progressbar").data("kendoProgressBar");
+        pb.value(20);
+      });
+	</script>
+
 ## Events
 
 ### change
 
-Fired when the value of the **ProgressBar** has changed. If the progress animation is enabled and the duration is set to more than 0, the event will be fired after the animation has completed (does not applies to chunk **ProgressBar**).
+Fired when the value of the **ProgressBar** has changed. If the progress animation is enabled, the event will be fired after the animation has completed (does not applies to chunk **ProgressBar**).
 
 #### Event Data
 
@@ -262,7 +329,7 @@ The current value of the **ProgressBar**.
 
 ### complete
 
-Fired when the value of the **ProgressBar** has reached the maximum value for the first time.
+Fired when the value of the **ProgressBar** reaches the maximum value.
 
 > **Important** The event is not fired during the initialization of the widget, even when the initial value is equal to the maximum value.
 
@@ -297,39 +364,3 @@ The current value of the **ProgressBar**.
 	  progressbar.bind("complete", onComplete);
 	</script>
 
-### start
-
-Fired when the value of the **ProgressBar** has changed for the first time.
-
-> **Important** The event is not fired during the initialization of the widget, even when the initial value is greater than the minimum value.
-
-#### Event Data
-
-##### e.value `Number`
-
-The current value of the **ProgressBar**.
-
-#### Example - subscribe to the "start" event during initialization
-
-	<div id="progressbar"></div>
-	<script>
-	  $("#progressbar").kendoProgressBar({
-	    start: function(e) {
-	      console.log("Value is " + e.value);
-	    }
-	  });
-	</script>
-
-#### Example - subscribe to the "start" event after initialization
-
-	<div id="progressbar"></div>
-	<script>
-	  function onStart(e) {
-	    console.log("Value is " + e.value);
-	  }
-
-	  $("#progressbar").kendoProgressBar();
-
-	  var progressbar = $("#progressbar").data("kendoProgressBar");
-	  progressbar.bind("start", onStart);
-	</script>
