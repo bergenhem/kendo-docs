@@ -309,6 +309,8 @@ passing the platform name in the `options` parameter of the Application's constr
          });
     </script>
 
+Platform can be one of "ios", "ios7", "android", "blackberry", "wp", "meego".
+
 Additionally, the OS version can be specified by passing a `kendo.support.mobileOS` object that is expected by Kendo UI Mobile.
 This allows fine-grained tuning of the application look and behavior. A sample object initialization is like this:
 
