@@ -1,6 +1,6 @@
 ---
 title: kendo.ui.ProgressBar
-meta_title: Configuration, methods and events of Kendo UI ProgressBar
+meta_title: Configuration, fields, methods and events of Kendo UI ProgressBar
 meta_description: How to configure and control Kendo UI ProgressBar widget
 slug: api-web-progressbar
 relatedDocs: gs-web-progressbar-overview
