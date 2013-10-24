@@ -193,8 +193,8 @@ The function context of the event handler (available via the `this` keyword) is 
 ## Accessing Kendo UI widget elements
 
 Each Kendo UI widget instance keeps references to two elements - `element` and `wrapper`.
-`element` is the element from which the widget was initialized. Depending on the widget, it may be visible or hidden. It is also returned by the initialization statement;
-`wrapper` is the outermost element, which is part of the widget. Depending on the widget and exact scenario, the two references may match.
+**`element`** is the element from which the widget was initialized. Depending on the widget, it may be visible (e.g. AutoComplete, Calendar, DatePicker, etc.) or hidden (e.g. DropDownList, Upload).
+A reference to this element is also returned by the initialization statement. **`wrapper`** is the outermost element, which is part of the widget. Depending on the widget and exact scenario, the two references may match.
 For example, if the Grid is initialized from a `&lt;div&gt;`, the two references match.
 If the Grid is initialized from a `&lt;table&gt;`, then `element` points to the `&lt;table&gt;`, while `wrapper` points to the wrapper `&lt;div&gt;`.
 
