@@ -62,7 +62,7 @@ Shapes can be connected using the connect() method;
 
 which results in something like the picture below
 
-![Two shapes connected.](SimplyConnected.png)
+![Two shapes connected.](SimplyConnected.PNG)
 
 Note that by default so-called caps are defined on the endpoints of the connection to render a directed connection.
 
@@ -73,7 +73,7 @@ You can alter the caps by means of the options:
 						endCap: "FilledCircle"
 					   });
 
-![Changing connection caps.](ChangedCaps.png)
+![Changing connection caps.](ChangedCaps.PNG)
 
 and additional properties can be changed in a similar fashion:
 
@@ -89,7 +89,7 @@ and additional properties can be changed in a similar fashion:
 	    content: "Kendo"
 	});
 
-![Changing connection options.](ConnectionOptions.png)
+![Changing connection options.](ConnectionOptions.PNG)
 
 ### Layout
 
@@ -99,14 +99,14 @@ Diagram layout consists in an automatic organization of a diagram on the basis h
 
 this will give a random diagram, something like the follwing;
 
-![A random diagram.](RandomDiagram.png)
+![A random diagram.](RandomDiagram.PNG)
 
 and upon calling the layout method
 
 	diagram.layout();
 
 you will see a diagram similar to this:
-![Layout of a random diagram.](LayoutRandomDiagram.png)
+![Layout of a random diagram.](LayoutRandomDiagram.PNG)
 
 
 The default layout algorithm is the top-down tree layout. You can change this to another type (and subtype) by inserting it in the layout options;
@@ -115,7 +115,7 @@ The default layout algorithm is the top-down tree layout. You can change this to
 
 which would give something like
 
-![Force directed layout.](ForceSample.png)
+![Force directed layout.](ForceSample.PNG)
 
 Other layout types and options are discussed in the API.
 
@@ -140,7 +140,7 @@ There are various ways you can define and customize data binding and we'll only 
 
 which produces a tree diagram with the default rectangular shapes;
 
-![Simple data binding.](SimpleDatabinding.png)
+![Simple data binding.](SimpleDatabinding.PNG)
 
 Alternatively, you can define the data binding through the setDataSource method;
 
@@ -189,7 +189,7 @@ If you need more flexibility you can fully control where and how data is display
 Note that the function returning a visual has a parameter containing the data item to be displayed.
 The result of this custom data binding would look something like this;
 
-![Custom data binding visuals.](GetVisual.png)
+![Custom data binding visuals.](GetVisual.PNG)
 
 
 ### Custom shapes
@@ -207,22 +207,22 @@ you can paste the "d" value into a new diagram Shape in the options
 
 and it will render as
 
-![Custom shape data.](CustomShape.png)
+![Custom shape data.](CustomShape.PNG)
 
 The important thing at this point is that the path in your SVG editor should be located **at the origin of the coordinate system**, otherwise the custom path inside the Shape will be offset with respect to the shape adorner; 
 
-![Offset due to not placing the path at the origin.](IncorrectCustomPath.png)
+![Offset due to not placing the path at the origin.](IncorrectCustomPath.PNG)
 
 
 ### Connectors
 
 Connectors are specific points on a shape where connections can be attached. They light up on hovering over a shape and when dragging a new connection. A shape has by default five connectors (left, right, top, bottom and auto), one of which acts as a switchboard to the other ones. When you have a connection attached to the central auto-connector the endpoint of the connection will switch between the other four connectors to minimize the length of the connection.  If one the other hand you bind a connection to one of the four standard connectors the endpoint will remain bound to that one. 
 
-![Connectors.](Connectors.png)
+![Connectors.](Connectors.PNG)
 
 If your custom shape needs custom connectors you can do so by passing their definition in the Shape creation. For example, the custom shape below represents a three-way arrow and the default connectors would not suit the shape's design very well. 
 
-![Custom connectors on custom shape.](ThreeWayShape.png)
+![Custom connectors on custom shape.](ThreeWayShape.PNG)
 
 You need to specify in this case a 'connectors' array and supply a unique name together with a position function. The diagramming framework defines various helpful methods to position the connectors;
 
