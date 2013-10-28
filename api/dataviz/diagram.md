@@ -44,7 +44,7 @@ data source is fired. By default the widget will bind to the data source specifi
 
 ### name `String` *(default: "Diagram")*
 
-<div style="color:red">The name doesn't seem to be used or do anything, does it?</div>
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *The name doesn't seem to be used or do anything, does it?*
 
 ### zoomRate `Number` *(default: 1.1)*
 
@@ -56,14 +56,30 @@ See the [dataSource field](#fields-dataSource).
 
 ### dragAndDrop `Boolean` *(default: false)*
 
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Can't see where or how this one is being used.*
+
 ### template `String|Function`
 
 The [template](/api/framework/kendo#methods-template) which renders the content of the shape when bound to a dataSource. The names you can use in the template correspond to the properties used in the dataSource. See the dataSource topic below for a concrete example.
 
 
 ### dataTextField `String`
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Something to do with the underlying Kendo infrastructure?*
+
 ### resizable `Boolean` *(default: true)*
+
+This defines whether the shapes can be resized. If set to false the adorner will not show the resizing thumbs, as can be seen below;
+
+![Resizable configuration.](resizable.png)
+
 ### rotatable `Boolean` *(default: true)*
+
+This defines whether the shapes can be rotated. If set to false the adorner will not show the rotating thumb, as can be seen below;
+
+![Rotatable configuration.](rotatable.png)
+
+
 ### visualTemplate `Function`
 
 A function returning a visual element to render for a given dataSource item. The following primitives can be used to construct a composite visual:
@@ -76,7 +92,7 @@ A function returning a visual element to render for a given dataSource item. The
 * TextBlock
 * Image
 
-<div style="color:red">Should redirect here to a more comprehensive overview of how to use the primitives.</div>
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Should redirect here to a more comprehensive overview of how to use the primitives.*
 
 #### Example - how to use the visualTemplate
 
@@ -155,7 +171,7 @@ The [data source](/api/framework/datasource) of the widget. Configured via the [
 #### Example - update a data item in the data source
 
 
-<div style="color:red">  Doesn't work right now, need to hook up or amend the update of the source.</div>
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Doesn't work right now, need to hook up or amend the update of the source.*
 
  	<div id="diagram"></div>
     <script>
@@ -179,7 +195,7 @@ The [data source](/api/framework/datasource) of the widget. Configured via the [
 
 #### Example - remove a data item in the data source
 
-<div style="color:red">  Same here, need to hook up or amend the update of the source.</div>
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Same here, need to hook up or amend the update of the source.*
  
 
  	<div id="diagram"></div>
