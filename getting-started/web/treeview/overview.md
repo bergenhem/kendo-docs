@@ -179,7 +179,7 @@ and can be easily accessed through the treeview [dataItem method](/api/web/treev
     });
 
 Since the dataItem is of type [Node](http://docs.kendoui.com/api/framework/node),
-you can use its [loaded flag](http://docs.kendoui.com/api/framework/node#loaded) to force reloading of nodes from the server.
+you can use its [loaded flag](http://docs.kendoui.com/api/framework/node#methods-loaded) to force reloading of nodes from the server.
 
 ### Reloading child nodes when nodes are expanded
 
