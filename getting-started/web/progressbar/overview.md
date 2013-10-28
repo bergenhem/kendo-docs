@@ -52,7 +52,7 @@ Many of the **ProgressBar** options can be configured through it's properties, i
 * Minimum and maximum value
 * Animation duration
 
-### Configure a complex ProgressBar
+### Configure the ProgressBar
 
 	$("#progressbar").kendoProgressBar({
       min: 100,
@@ -78,13 +78,14 @@ You can reference an existing **ProgressBar** instance via [jQuery.data()](http:
 The **ProgressBar** supports the following [events](http://docs.kendoui.com/api/web/progressbar#events):
 
 * **change** - Fired each time when a new value is set.
-* **complete** - Fired when the progress has completed i.e. when it reaches the maximum value for the first time.
-* **start** - Fired when the progress has started i.e. when the value is changed for the first time.
+* **complete** - Fired when the progress has completed i.e. each time when it reaches the maximum value.
 
 There are two ways to handle events:
 
 * Specify the JavaScript function which will handle the event during the widget initialization.
 * Use the `bind` method of the widget after initialization.
+
+You could find examples of both approaches in the [api reference](http://docs.kendoui.com/api/web/progressbar#events).
 
 ### Accessing an Existing ProgressBar instance
 
