@@ -143,7 +143,7 @@ The available editor commands are:
 
 ### tools.name `String`
 
-When specifying a tool as an object, a tool name is required.
+When specifying a tool as an object, a tool name is required. **Please note that "undo" and "redo" are reserved tool names.**
 
 #### Example
 

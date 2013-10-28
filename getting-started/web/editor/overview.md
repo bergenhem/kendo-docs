@@ -64,7 +64,7 @@ The Editor functionality can be extended through custom tools, defined in the `t
            ]
        });
 
-The custom buttons get a **k-toolName** CSS class to allow styling. (where `toolName` is the name specified in the custom tool configuration)
+The custom buttons get a **k-toolName** CSS class to allow styling (where `toolName` is the name specified in the custom tool configuration). **Please note that "undo" and "redo" are reserved tool names.**
 
 ## Sizing
 
