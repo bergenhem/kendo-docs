@@ -360,6 +360,14 @@ Keyboard navigation within the grid is supported by the `navigatable` option.  W
          // other configuration
     });
 
+The Grid keyboard navigation works by listening to keydown events on the Grid wrapper element. The assumption is that everything the user does is in accordance with the Grid's currently focused cell,
+not the browser's focused element. If the Grid data cells contain hyperlinks and users want to activate them via the keyboard, the correct way to do that is to navigate to the respective Grid cell using the arrow keys,
+then press ENTER to focus the hyperlink inside the cell, then press ENTER again. Afterwards, pressing ESC will return focus to the table cell. The custom hyperlinks should have a tabindex="-1" attribute,
+so that they are inaccessible via tabbing.
+
+If needed, the described procedure can be avoided. The custom hyperlinks can be accessed via tabbing and activated via ENTER by hacking and bypassing the Grid keyboard navigation.
+This is achieved by preventing event bubbling of the custom hyperlinks' **keydown** event, so that the Grid never finds out about their ENTER keypresses.
+
 ### Retrieving a Grid row by a model ID
 
 In order to get a Grid table row by the data item ID can be achieved in the following way.
