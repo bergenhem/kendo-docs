@@ -353,7 +353,7 @@ Transforms a given rectangle to the diagram coordinate system.
 
 ##### r `Rect`
 
-An arbitrary rectangle to transform to the diagram coordinate system.
+The rectangle to be transformed.
 
 ### focus
 
@@ -371,6 +371,22 @@ Creates a connection which can be either attached on both ends to a shape, half 
 Finally, if you wish to have a (half) floating connection endpoint you should specify a Point as parameter for the floating end. 
 
 ![Creating connections.](connect.png)
+
+#### Parameters
+
+##### source `Object`
+
+The source definition of the connection. This can be a Shape, a Connector or a Point.
+
+##### target `Object`
+
+The target definition of the connection. This can be a Shape, a Connector or a Point.
+
+##### options `Object`
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Forward to the Connection Options here*
+
+The options of the new connection. See the Connection's options.
 
 #### Example - connecting two shapes using the Auto-connector
 
@@ -406,7 +422,20 @@ Note that the Shape holds an indexed connectors collection. Instead of accessing
 
 ### connected
 
+Returns whether the two given shapes are connected through a connection. 
+
+#### Parameters
+
+##### source `Shape`
+
+A Shape in the diagram.
+
+##### target `Shape`
+
+A Shape in the diagram.
+
 ### addConnection
+
 
 ### addShape
 
