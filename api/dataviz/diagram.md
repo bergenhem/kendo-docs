@@ -448,10 +448,31 @@ The Connection instance to be added to the diagram.
 
 Whether the addition should be recorded in the undo-redo stack. 
 
+#### Example - adding a Connection to the diagram
 
+    <script>
+    $("#diagram").kendoDiagram();
+    var diagram = $("#diagram").data("kendoDiagram");
+	var shape1 = diagram.addShape(new Point(100, 100));
+    var shape2 = diagram.addShape(new Point(300, 200));
+    
+	var connection = new kendo.diagram.Connection(shape1, shape2, { stroke: "red", strokeThickness: 3});
+    diagram.addConnection(connection);
+    </script>
 
 ### addShape
 
+
+Adds a new shape to the diagram.
+#### Parameters
+
+##### obj `Shape|Point` *(default: new Point(0,0))*
+
+A Shape instance or a Point where the default shape type will be added.
+
+##### undoable `Boolean` *(default:true)*
+
+Whether the addition should be recorded in the undo-redo stack. 
 
 ### undo
 
