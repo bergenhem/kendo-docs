@@ -436,6 +436,19 @@ A Shape in the diagram.
 
 ### addConnection
 
+Adds the given Connection to the diagram.
+
+#### Parameters
+
+##### connection `Connection`
+
+The Connection instance to be added to the diagram.
+
+##### undoable `Boolean` *(default:true)*
+
+Whether the addition should be recorded in the undo-redo stack. 
+
+
 
 ### addShape
 
