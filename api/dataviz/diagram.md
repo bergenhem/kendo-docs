@@ -495,6 +495,17 @@ Executes again the previously undone action.
 
 ### remove
 
+Removes one or more items from the diagram
+
+#### Parameters
+
+##### items `Object|Array`
+
+A diagram item or an array of diagram items to remove.
+
+##### undoable `Boolean` *(default:true)*
+
+Whether the removal should be recorded in the undo-redo stack.
 
 ### select
 
@@ -513,9 +524,15 @@ Executes again the previously undone action.
 
 ### copy
 
+Puts a copy of the currently selected diagram items on the (internal diagram) clipboard.
+
 ### cut
 
+Cuts the currently selected diagram items and puts them on the (internal diagram) clipboard.
+
 ### paste
+
+Pastes the content of the (internal diagram) clipboard in the diagram.
 
 ### refresh
 
@@ -532,3 +549,6 @@ Executes again the previously undone action.
 ![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Useful for examples but otherwise not strictly necessary as a public method.*
 
 ### getId
+
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Overlap with findByUid*
