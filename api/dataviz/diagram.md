@@ -334,3 +334,88 @@ Returns the bounds of the diagramming canvas.
 ### transformMainLayer
 
 ![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Probably not needed to be a public method*
+
+### transformPoint
+
+Transforms a point from the main canvas coordinates to the non-transformed origin.
+
+#### Parameters
+
+##### p `Point`
+
+An arbitrary point to transform to the diagram coordinate system.
+
+### transformRect
+
+Transforms a given rectangle to the diagram coordinate system.
+
+#### Parameters
+
+##### r `Rect`
+
+An arbitrary rectangle to transform to the diagram coordinate system.
+
+### focus
+
+Sets the focus on the diagram.
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Something about scrolling which has to be cleared out or demonstrated.*
+
+### clear
+
+Clears the content of the diagram.
+
+### connect
+
+Creates a connection which can be either attached on both ends to a shape, half attached or floating (not attached to any shape). When a connection is (half) attached to a shape it happens through the intermediate Connector object. Connectors are part of a Shape's definition and you can specify the binding of a connection to a shape directly via the shape or via one of its connectors. If you specify a Shape as a connection's endpoint the Auto-connector will be used. This means that the endpoint of the connection will switch to the most convenient (in the sense of shortest path) connector automatically. If you specify a shape's connector as an endpoint for a connection the endpoint will remain attached to that given Connector instance.
+Finally, if you wish to have a (half) floating connection endpoint you should specify a Point as parameter for the floating end. 
+
+### connected
+
+### addConnection
+
+### addShape
+
+
+### undo
+
+### redo
+
+### remove
+
+### select
+
+### toFront
+
+### toBack
+
+### bringIntoView
+
+
+### getBoundingBox
+
+### getOriginBoundingBox
+
+### documentToCanvasPoint
+
+### copy
+
+### cut
+
+### paste
+
+### refresh
+
+### findByUid
+
+### refreshSource
+
+### layout
+
+### alignShapes
+
+### randomDiagram
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Useful for examples but otherwise not strictly necessary as a public method.*
+
+### getId
