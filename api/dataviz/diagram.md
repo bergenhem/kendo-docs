@@ -462,8 +462,8 @@ Whether the addition should be recorded in the undo-redo stack.
 
 ### addShape
 
-
 Adds a new shape to the diagram.
+
 #### Parameters
 
 ##### obj `Shape|Point` *(default: new Point(0,0))*
@@ -474,11 +474,27 @@ A Shape instance or a Point where the default shape type will be added.
 
 Whether the addition should be recorded in the undo-redo stack. 
 
+#### Example - adding a shape to the diagram
+
+    <script>
+    $("#diagram").kendoDiagram();
+    var diagram = $("#diagram").data("kendoDiagram");
+
+	 diagram.addShape(new Point(100, 100));
+     var shape = new kendo.diagram.Shape({x:500, y:100, background: "red"});
+     diagram.addShape(shape);
+    </script>
+
 ### undo
+
+Undoes the previous action.
 
 ### redo
 
+Executes again the previously undone action.
+
 ### remove
+
 
 ### select
 
