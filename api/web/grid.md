@@ -5505,6 +5505,7 @@ The widget instance which fired the event.
 
           var logicDropDown = e.container.find("select:eq(1)").data("kendoDropDownList");
           logicDropDown.value("or");
+          logicDropDown.trigger("change");
 
           var secondValueDropDown = e.container.find("select:eq(2)").data("kendoDropDownList");
           secondValueDropDown.value("contains");
