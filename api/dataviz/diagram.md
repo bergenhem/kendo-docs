@@ -370,6 +370,40 @@ Clears the content of the diagram.
 Creates a connection which can be either attached on both ends to a shape, half attached or floating (not attached to any shape). When a connection is (half) attached to a shape it happens through the intermediate Connector object. Connectors are part of a Shape's definition and you can specify the binding of a connection to a shape directly via the shape or via one of its connectors. If you specify a Shape as a connection's endpoint the Auto-connector will be used. This means that the endpoint of the connection will switch to the most convenient (in the sense of shortest path) connector automatically. If you specify a shape's connector as an endpoint for a connection the endpoint will remain attached to that given Connector instance.
 Finally, if you wish to have a (half) floating connection endpoint you should specify a Point as parameter for the floating end. 
 
+![Creating connections.](connect.png)
+
+#### Example - connecting two shapes using the Auto-connector
+
+    <script>
+    $("#diagram").kendoDiagram();
+    var diagram = $("#diagram").data("kendoDiagram");
+	var shape1 = diagram.addShape(new Point(100, 100));
+	var shape2 = diagram.addShape(new Point(400, 100));
+	var connection = diagram.connect(shape1, shape2)        
+    </script>
+
+#### Example - connecting two shapes using the specific connectors
+
+    <script>
+    $("#diagram").kendoDiagram();
+    var diagram = $("#diagram").data("kendoDiagram");
+	var shape1 = diagram.addShape(new Point(100, 100));
+	var shape2 = diagram.addShape(new Point(400, 100));
+	var connection = diagram.connect(shape1.getConnector["Top"], shape2.getConnector["Bottom"])        
+    </script>
+
+#### Example - creating a half-floating connection
+
+    <script>
+    $("#diagram").kendoDiagram();
+    var diagram = $("#diagram").data("kendoDiagram");
+	var shape = diagram.addShape(new Point(100, 100));	 
+	var connection = diagram.connect(new Point(150,150), shape)        
+    </script>
+
+Note that the Shape holds an indexed connectors collection. Instead of accessing a default or custom connector by means of the **getConnector("name-of-connector")** method you could use **connectors[index]** instead.
+
+
 ### connected
 
 ### addConnection
