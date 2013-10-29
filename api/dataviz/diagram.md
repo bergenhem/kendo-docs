@@ -236,3 +236,101 @@ The [configuration](#configuration) options with which the diagram is initialize
                        offsetY: 100
                    };
     </script>
+
+## Methods
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *I have gone over all the methods in the code which are not marked as '_private', but it doesn't mean they should be public. We should clean up and decide/set/settle the method which should be private or public.*
+
+### destroy
+
+Prepares the widget for safe removal from the DOM. Detaches all event handlers and removes jQuery.data attributes to avoid memory leaks. Calls destroy method of any child Kendo widgets.
+
+> This method does not remove the widget element from the DOM.
+
+#### Example
+
+    <script>
+    $("#diagram").kendoDiagram({
+      dataSource: [
+                      {
+
+                          "name" : "Telerik",
+                          "items": [
+                              {"name": "Kendo"},
+                              {"name": "Icenium"}
+                          ]
+                      }
+                  ],
+      template  : "#= item.name #"
+    });
+    var diagram = $("#diagram").data("kendoDiagram");
+    diagram.destroy();    
+    </script>
+
+### zoom
+
+Zooms in or out of the diagram.
+
+#### Parameters
+
+##### zoom `Number`
+
+The zoom factor.
+
+##### staticPoint `Point`
+
+The point to zoom into or out of.
+
+### setDataSource
+
+Sets the data source of the diagram.
+
+#### Parameters
+
+##### dataSource `kendo.data.DataSource`
+
+The data source to which the widget should be bound.
+
+### save
+
+Saves the diagram.
+
+### load
+
+Loads a saved diagram.
+
+#### Parameters
+
+##### json `String`
+
+The serialized diagram in JSON format.
+
+### getValidZoom
+
+Makes sure the zoom in within some valid bounds.
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Probably not needed to be a public method*
+
+#### Parameters
+
+##### zoom `Number`
+
+The zoom factor.
+
+### pan
+
+Pans the diagram with a specified delta (represented as a Point).
+
+#### Parameters
+
+##### pan `Point`
+
+The translation delta to apply to the diagram.
+
+### viewport
+
+Returns the bounds of the diagramming canvas.
+
+### transformMainLayer
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Probably not needed to be a public method*
