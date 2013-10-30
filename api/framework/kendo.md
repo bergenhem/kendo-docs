@@ -515,10 +515,32 @@ Formats a `Number` or `Date` using the specified format and the current culture.
 The `Date` or `Number` which should be formatted.
 
 ##### format `String`
+
 The format string which should be used to format the value.
 
 ##### culture `String`
+
 The name of the culture which should be used to format the value. [The culture should be registered on the page](http://docs.kendoui.com/getting-started/framework/globalization/overview#add culture scripts to the page).
+
+### widgetInstance
+
+Returns a Kendo UI widget instance, attached to the provided element.
+
+### Parameters
+
+#### element `jQuery`
+
+The DOM element that may have a Kendo UI instance attached to it.
+
+#### suite `Object`
+
+The Kendo UI suite, that the widget is expected to be part of - `kendo.ui` (web widgets), `kendo.mobile.ui` or `kendo.dataviz.ui`.
+
+### Returns
+
+`Object` The Kendo UI widget instance with all applicable methods and fields, if the instance is attached to the provided element.
+
+`undefined` otherwise
 
 ## Fields
 
