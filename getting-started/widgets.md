@@ -93,6 +93,24 @@ The `$("#autocomplete").data("kendoAutoComplete")` statement returns the Kendo A
 > Kendo UI widget instances are associated with their elements via the [jQuery data](http://api.jquery.com/data/) method. The key passed to the jQuery data method
 is the name of the jQuery plugin itself - "kendoAutoComplete", "kendoGrid" etc.
 
+## Getting reference to an unknown Kendo UI widget
+
+In some rare occasions, you may need to check whether a given DOM element is part of a Kendo UI widget and in that case, obtain the widget instance and use its API. Here is the required procedure:
+
+	// 1. W have some DOM element, e.g. <input id="myID" />
+
+	// 2. Is the element part of a Kendo UI widget?
+	var isFromWidget = $("#myID").closest(".k-widget").length > 0;
+
+	// 3. Which is the element that may have a client Kendo UI widget instance attached?
+	var widgetElement = $("#myID").closest("[data-" + kendo.ns + "role]");
+
+	// 4. How to obtain reference to the Kendo UI widget instance from the specified element?
+	var widgetObject = kendo.widgetInstance(widgetElement);
+
+	// 5. What is the Kendo UI widget type (name)?
+	var widgetName = widgetObject.options.name;
+
 ## Using the API of a Kendo UI widget
 
 The Kendo UI widgets expose a set of methods which can alter or query their state.
