@@ -489,6 +489,19 @@ Whether the addition should be recorded in the undo-redo stack.
 
 Undoes the previous action.
 
+#### Example - undoing items removal
+
+    <script>
+    	$("#diagram").kendoDiagram();
+    	var diagram = $("#diagram").data("kendoDiagram");
+
+	 	var shape1 = diagram.addShape(new Point(100, 100));
+	    var shape2 = diagram.addShape(new Point(400, 100));
+	    var con = diagram.connect(shape1,shape2);
+	    diagram.remove([shape1, shape2], true);
+	    diagram.undo();
+    </script>
+
 ### redo
 
 Executes again the previously undone action.
@@ -507,13 +520,82 @@ A diagram item or an array of diagram items to remove.
 
 Whether the removal should be recorded in the undo-redo stack.
 
+#### Example - removing items
+
+    <script>
+    	$("#diagram").kendoDiagram();
+    	var diagram = $("#diagram").data("kendoDiagram");
+
+	 	var shape1 = diagram.addShape(new Point(100, 100));
+	    var shape2 = diagram.addShape(new Point(400, 100));
+	    var con = diagram.connect(shape1,shape2);
+	    diagram.remove([shape1, shape2, con]);	    
+    </script>
+
 ### select
+
+Gets the currently selected items is no parameter is specified. If a parameter is specified this selects items in the diagram on the basis of the given input.
+
+#### Parameters
+
+##### obj `Object`
+
+* a **Boolean** value: if true then all items are selected, if false all items are deselected
+* a **rectangle**: any diagram items which overlaps with the given rectangle will be selected
+* a **string**: if "none" then all will be deselected, if "all" then all items will be selected
+* an **array**: the array of items to be selected
+* a **diagram item**: the item to be selected
+
+##### options `Object`
+
+Only one Boolean option is currently defined; addToSelection. If set to true the newly selected items will be added to the existing selection. Otherwise a new selection set is created. The default is false. 
+
 
 ### toFront
 
+Brings the specified items in front, i.e. it's reordering items in the SVG stack to ensure they are on top of the complementary items.
+
+#### Parameters
+
+##### items `Array`
+
+An array of diagram items.
+
+##### undoable `Boolean`
+
+Whether the change should be recorded in the undo-redo stack.
+
+
 ### toBack
 
+Sends the specified items to the back, i.e. it's reordering items in the SVG stack to ensure they are underneath the complementary items.
+
+#### Parameters
+
+##### items `Array`
+
+An array of diagram items.
+
+##### undoable `Boolean`
+
+Whether the change should be recorded in the undo-redo stack.
+
 ### bringIntoView
+
+Brings one or more items into the view in function of various criteria.
+
+#### Parameters
+
+##### obj `Array|Item|Rect`
+
+* a diagram item
+* an array of items
+* a rectangle: this defines a window which the view should contain
+
+##### options `Object`
+
+* animate
+* align
 
 
 ### getBoundingBox
