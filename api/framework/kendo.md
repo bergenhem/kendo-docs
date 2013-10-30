@@ -526,17 +526,17 @@ The name of the culture which should be used to format the value. [The culture s
 
 Returns a Kendo UI widget instance, attached to the provided element.
 
-### Parameters
+#### Parameters
 
-#### element `jQuery`
+##### element `jQuery`
 
 The DOM element that may have a Kendo UI instance attached to it.
 
-#### suite `Object`
+##### suite `Object`
 
 The Kendo UI suite, that the widget is expected to be part of - `kendo.ui` (web widgets), `kendo.mobile.ui` or `kendo.dataviz.ui`.
 
-### Returns
+#### Returns
 
 `Object` The Kendo UI widget instance with all applicable methods and fields, if the instance is attached to the provided element.
 
