@@ -682,11 +682,59 @@ Pastes the content of the (internal diagram) clipboard in the diagram.
 
 ### layout
 
+Applies a layout algorithm on the current diagram.
+
+[A more detailed overview of layout and graph analysis can be found in a separate document.](diagram-layout.md "Kendo diagram layout details.")
+
+#### Parameters
+
+##### options `Object`
+
+A variety of options can be specified regarding layout. [See this document for more information.](diagram-layout.md "Kendo diagram layout details.")
+
+#### Example - force-directed layout
+
+This generates a small, random diagram whereafter the force-directed layout is applied.
+
+    <script>
+        	$("#diagram").kendoDiagram();
+        	var diagram = $("#diagram").data("kendoDiagram");
+            diagram.randomDiagram();
+    		diagram.layout({ type: "ForceDirected")};
+        </script>
+
 ### alignShapes
+
+Aligns the edges (as defined by the bounding box) of the selected shapes.
+
+
+#### Parameters
+
+##### direction `String`
+
+This can be one of the four standard directions: 'left', 'right', 'top', 'bottom'.
 
 ### randomDiagram
 
 ![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Useful for examples but otherwise not strictly necessary as a public method.*
+
+#### Parameters
+
+##### shapeCount `Number` *(default: 40)*
+
+The number of shapes to generate.
+
+##### maxIncidence `Number` *(default: 4)*
+
+The maximum number of links a vertex (node) can have.
+
+##### isTree `Number` *(default: false)*
+
+Whether the generated graph should be a tree.
+
+##### randomSize `Number` *(default: false)*
+
+Whether the shapes should have random sizes. By default the shapes are circles but if this property is set to true the shapes will be rectangles with a random with and height.
 
 ### getId
 
