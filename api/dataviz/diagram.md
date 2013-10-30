@@ -738,5 +738,6 @@ Whether the shapes should have random sizes. By default the shapes are circles b
 
 ### getId
 
+Returns the shape or connection with the specified identifier.
 
 ![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Overlap with findByUid*
