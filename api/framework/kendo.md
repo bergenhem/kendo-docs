@@ -525,6 +525,7 @@ The name of the culture which should be used to format the value. [The culture s
 ### widgetInstance
 
 Returns a Kendo UI widget instance, attached to the provided element.
+This method can be used in scenarios when the page (e.g. a form) contains both generic HTML elements and Kendo UI widgets and the exact distribution is not clear.
 
 #### Parameters
 
@@ -534,13 +535,27 @@ The DOM element that may have a Kendo UI instance attached to it.
 
 ##### suite `Object`
 
-The Kendo UI suite, that the widget is expected to be part of - `kendo.ui` (web widgets), `kendo.mobile.ui` or `kendo.dataviz.ui`.
+**Optional**. The Kendo UI suite, that the widget is expected to be part of - `kendo.ui` (web widgets), `kendo.mobile.ui` or `kendo.dataviz.ui`.
 
 #### Returns
 
 `Object` The Kendo UI widget instance with all applicable methods and fields, if the instance is attached to the provided element.
 
 `undefined` otherwise
+
+#### Example - using kendo.widgetInstance()
+
+	// get element
+	var textbox = $("#myTextBox");
+	// get widget object
+	var widget = kendo.widgetInstance(textbox);
+	if (widget) {
+		// execute an API method
+		widget.value(/* ... */);
+	} else {
+		// execute generic jQuery method
+		textbox.val(/* ... */);
+	}
 
 ## Fields
 
