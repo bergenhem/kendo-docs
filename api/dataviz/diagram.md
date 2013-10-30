@@ -597,8 +597,66 @@ Brings one or more items into the view in function of various criteria.
 * animate
 * align
 
+#### Example - bring a portion of the diagram into view
+
+This will offset/pan the diagram to bring the rectangle at position (500,500) into view.
+
+    <script>
+    	$("#diagram").kendoDiagram();
+    	var diagram = $("#diagram").data("kendoDiagram");
+
+	 	var shape1 = diagram.addShape(new Point(100, 100));
+	    var shape2 = diagram.addShape(new Point(400, 100));
+	    var con = diagram.connect(shape1,shape2);
+
+	    diagram.bringIntoView(new kendo.diagram.Rect(500, 500, 10, 10));
+    </script>
+
+#### Example - bring an item into view
+
+The second shape has a vertical position of 1000 and is off the screen at launch. Upon clicking the diagram this item will be in the view.
+
+    <script>
+    	var shape2;
+        function init()
+        {
+            var diagramElement = $("#canvas").kendoDiagram();
+            diagram = diagramElement.data("kendoDiagram");
+            diagramElement.css("width", "1200");
+            diagramElement.css("height", "800");
+        }
+        $(document).ready(
+                function()
+                {
+                    init();
+                    var shape1 = diagram.addShape(new Point(100, 100));
+                    shape2 = diagram.addShape(new Point(400, 1000));
+                    var con = diagram.connect(shape1, shape2);
+                });
+        $(document).click(function()
+        {
+            diagram.bringIntoView(shape2);
+        });
+    </script>
 
 ### getBoundingBox
+
+Returns the bounding rectangle of the specified items. If nothing is specified the bounding box of the all diagram will be returned. 
+
+#### Example - bring an item into view
+
+This will return "[0, 0, 600, 600]" in the console of the browser.
+
+    <script>
+    	$("#diagram").kendoDiagram();
+    	var diagram = $("#diagram").data("kendoDiagram");
+		
+		var lt = diagram.addShape(new Point(0, 0));
+        var rb = diagram.addShape(new Point(500, 500));
+        var r = diagram.getBoundingBox();
+        console.log("[" + r.x + "," + r.x + "," + r.width +","+ r.height +"]");
+    </script>
+
 
 ### getOriginBoundingBox
 
