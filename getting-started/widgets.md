@@ -97,10 +97,11 @@ is the name of the jQuery plugin itself - "kendoAutoComplete", "kendoGrid" etc.
 
 In some rare occasions, you may need to check whether a given DOM element is part of a Kendo UI widget and in that case, obtain the widget instance and use its API. Here is the required procedure:
 
-	// 1. W have some DOM element, e.g. <input id="myID" />
+	// 1. There is some DOM element, e.g. <input id="myID" />
+	var element = $("#myID");
 
 	// 2. Is the element part of a Kendo UI widget?
-	var isFromWidget = $("#myID").closest(".k-widget").length > 0;
+	var isFromWidget = element.closest(".k-widget").length > 0;
 
 	// 3. Which is the element that may have a client Kendo UI widget instance attached?
 	var widgetElement = $("#myID").closest("[data-" + kendo.ns + "role]");
@@ -108,8 +109,10 @@ In some rare occasions, you may need to check whether a given DOM element is par
 	// 4. How to obtain reference to the Kendo UI widget instance from the specified element?
 	var widgetObject = kendo.widgetInstance(widgetElement);
 
-	// 5. What is the Kendo UI widget type (name)?
+	// 5. What is the Kendo UI widget name?
 	var widgetName = widgetObject.options.name;
+
+Here is some more information about the [kendo.widgetInstance method](/api/framework/kendo#methods-widgetInstance).
 
 ## Using the API of a Kendo UI widget
 
