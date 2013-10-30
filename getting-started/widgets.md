@@ -104,7 +104,7 @@ In some rare occasions, you may need to check whether a given DOM element is par
 	var isFromWidget = element.closest(".k-widget").length > 0;
 
 	// 3. Which is the element that may have a client Kendo UI widget instance attached?
-	var widgetElement = $("#myID").closest("[data-" + kendo.ns + "role]");
+	var widgetElement = element.closest("[data-" + kendo.ns + "role]");
 
 	// 4. How to obtain reference to the Kendo UI widget instance from the specified element?
 	var widgetObject = kendo.widgetInstance(widgetElement);
