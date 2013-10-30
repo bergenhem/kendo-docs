@@ -217,7 +217,7 @@ Every Kendo UI widget has a `destroy` method, which does the following:
 The Window widgets is an exception, as it represents a detached popup on its own.
 1. Destroys all child widgets.
 
-A widget can be destroyed if it is no longer needed, or if it is placed inside a container, which will be updated via an Ajax request. The latter is recommended to prevent memory leaks.
+A widget can be destroyed if it is no longer needed, or if it is placed inside a container, which will be updated via an Ajax request. The latter is recommended to prevent memory leaks or other unexpected side effects.
 
 Kendo UI widgets are destroyed automatically when the web page is unloaded.
 
