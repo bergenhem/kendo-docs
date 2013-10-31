@@ -11,7 +11,7 @@ publish: true
 
 &nbsp;
 
-> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget might change.
+> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget (to be released in Q3 2013 in late November) might change.
 
 ## Configuration
 

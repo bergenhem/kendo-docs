@@ -15,7 +15,7 @@ Apart from consistent Kendo UI styling, the **Button** provides keyboard operabi
 
 It is assumed that the reader of this page is familiar with the [fundamental Kendo UI widget concepts](/getting-started/widgets).
 
-> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget might change.
+> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget (to be released in Q3 2013 in late November) might change.
 
 ## Getting Started
 
