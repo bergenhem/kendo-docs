@@ -9,6 +9,8 @@ publish: true
 
 # kendo.ui.Button
 
+&nbsp;
+
 > The Kendo UI Button is currently released as a beta. The final API and behavior of the widget might change.
 
 ## Configuration

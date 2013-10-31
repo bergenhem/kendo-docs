@@ -10,12 +10,12 @@ publish: true
 
 # Button Overview
 
-> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget might change.
-
 The **Kendo UI Button** provides a styled clickable UI widget with arbitrary content.
 Apart from consistent Kendo UI styling, the **Button** provides keyboard operability for elements, which natively don't have it (e.g. `span`).
 
 It is assumed that the reader of this page is familiar with the [fundamental Kendo UI widget concepts](/getting-started/widgets).
+
+> The Kendo UI Button is currently released as a beta. The final API and behavior of the widget might change.
 
 ## Getting Started
 
