@@ -488,7 +488,7 @@ Since the browser cannot understand the relationship between the two Grid tables
 
 ## Adding a custom row when no records are loaded
 
-When the datasource does not return any data (e.g. as a result of filtering) a table row with some message can be added:
+When the datasource does not return any data (e.g. as a result of filtering) a table row with some user-friendly message can be added manually:
 
 ### Example - adding a table row in the Grid's [dataBound](/api/web/grid/#events-dataBound) event handler
 
