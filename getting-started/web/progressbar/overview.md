@@ -12,6 +12,8 @@ publish: true
 
 The **ProgressBar** offers rich functionality for displaying and tracking progress. It supports multiple types, horizontal or vertical orientation and also different directions.
 
+> Warning! The Kendo UI ProgressBar is currently released as a beta. The final API and behavior of the widget may change.
+
 
 ## Getting Started
 

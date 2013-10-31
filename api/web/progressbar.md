@@ -12,6 +12,8 @@ publish: true
 
 Represents the Kendo UI ProgressBar widget. Inherits from [Widget](/api/framework/widget).
 
+> Warning! The Kendo UI ProgressBar is currently released as a beta. The final API and behavior of the widget may change.
+
 ## Configuration
 
 ### animation `Object`
