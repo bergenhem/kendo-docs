@@ -76,7 +76,7 @@ By default, all navigational widgets try to navigate to local views when tapped.
 
 ### Example: External links
 
-    <a href="http://kendoui.com/" data-rel="external">Visit KendoUI</a>
+    <a href="http://kendoui.com/" data-role="button" data-rel="external">Visit KendoUI</a>
 
 ## View Transitions
 
