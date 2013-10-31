@@ -1,4 +1,4 @@
----
+
 title: Walkthrough
 meta_title: Detailed documentation for Kendo UI Grid Widget
 meta_description: This walkthrough section will guide you how to create a grid, add HTML table and control grid widget's features.
@@ -485,3 +485,17 @@ Since the browser cannot understand the relationship between the two Grid tables
 		});
 
 	});
+
+## Adding a custom row when no records are loaded
+
+In cases when the datasource does not return any data (e.g. as a result of filtering) and you want to provide some message to the end user, you can add a table row manually:
+
+### Example - adding a table row in the Grid's [dataBound](/api/web/grid/#events-dataBound) event handler
+
+	function onGridDataBound(e) {
+		if (!e.sender.dataSource.view().length) {
+			var colspan = e.sender.thead.find("th:visible").length,
+				emptyRow = '<tr><td colspan="' + colspan + '">... no records ...</td></tr>';
+			e.sender.tbody.parent().width(e.sender.thead.width()).end().html(emptyRow);
+		}
+	}
