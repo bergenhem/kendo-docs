@@ -286,7 +286,7 @@ The value to be set.
 	    value: 15
 	  });
 
-	  $(function(){
+	  $(function() {
 	    var pb = $("#progressbar").data("kendoProgressBar");
         pb.value(20);
       });
