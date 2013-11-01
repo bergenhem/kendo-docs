@@ -245,7 +245,6 @@ The files can be defined with their full names or by using wildcards. **Pay spec
 				// enforce bundling even in debug mode
 				// BundleTable.EnableOptimizations = true;
             }
-
 > ASP.NET bundling makes the following assumptions when wildcards are used:
 
 > If `kendo.web.*` is included, the framework will check whether a `kendo.web.min.js` file exists. If yes, then this file will be used in **release mode only**.
