@@ -246,12 +246,13 @@ The files can be defined with their full names or by using wildcards. **Pay spec
 				// BundleTable.EnableOptimizations = true;
             }
     > ASP.NET bundling makes the following assumptions when wildcards are used:	
+    
     > If `kendo.web.*` is included, the framework will check whether a `kendo.web.min.js` file exists. If yes, then this file will be used in **release mode only**.
-	The framework will search for a `kendo.web.js` file for **debug** mode. If such a file is not found, the Kendo UI scripts will not be registered and you will experience Javascript errors.
-	If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, then it will be used in **both** release and debug mode. The same logic applies for CSS files.
+    The framework will search for a `kendo.web.js` file for **debug** mode. If such a file is not found, the Kendo UI scripts will not be registered and you will experience Javascript errors.
+    If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, then it will be used in **both** release and debug mode. The same logic applies for CSS files.
     
     > If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
-	or by registering files using their full names instead of using wildcards.
+    or by registering files using their full names instead of using wildcards.
     
 1.  Register the bundles by executing the static method from the previous point in the `Application_Start()` method in **~/Global.asax.cs**:
 
@@ -333,10 +334,10 @@ be availble in your views. Rebuild your project after adding the namespace to th
 1.  Use any Kendo UI HtmlHelper extension:
     * WebForms
 
-    <%: Html.Kendo().DatePicker().Name("Birthday") %>
+        <%: Html.Kendo().DatePicker().Name("Birthday") %>
     * Razor
     
-    @(Html.Kendo().DatePicker().Name("Birthday"))
+        @(Html.Kendo().DatePicker().Name("Birthday"))
     
 ### Using CDN
 
