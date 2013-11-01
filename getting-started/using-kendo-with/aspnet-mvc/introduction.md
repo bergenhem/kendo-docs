@@ -245,14 +245,14 @@ The files can be defined with their full names or by using wildcards. **Pay spec
 				// enforce bundling even in debug mode
 				// BundleTable.EnableOptimizations = true;
             }
-	> ASP.NET bundling makes the following assumptions when wildcards are used:	
-	> If `kendo.web.*` is included, the framework will check whether a `kendo.web.min.js` file exists. If yes, then this file will be used in **release mode only**.
+    > ASP.NET bundling makes the following assumptions when wildcards are used:	
+    > If `kendo.web.*` is included, the framework will check whether a `kendo.web.min.js` file exists. If yes, then this file will be used in **release mode only**.
 	The framework will search for a `kendo.web.js` file for **debug** mode. If such a file is not found, the Kendo UI scripts will not be registered and you will experience Javascript errors.
 	If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, then it will be used in **both** release and debug mode. The same logic applies for CSS files.
-	
-	> If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
+    
+    > If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
 	or by registering files using their full names instead of using wildcards.
-
+    
 1.  Register the bundles by executing the static method from the previous point in the `Application_Start()` method in **~/Global.asax.cs**:
 
         protected void Application_Start()
@@ -297,7 +297,7 @@ The files can be defined with their full names or by using wildcards. **Pay spec
                     @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/kendo")
                 </head>
-	> The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
+    > The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
 The easiest way to achieve this is to match the virtual bundle URL with the physical location of the CSS files, as demonstrated above.
 Otherwise, the theme images must be placed in a folder with a name that matches the used theme name and this subfolder should be a child folder of the bundle path.
 
@@ -333,15 +333,11 @@ be availble in your views. Rebuild your project after adding the namespace to th
 1.  Use any Kendo UI HtmlHelper extension:
     * WebForms
 
-		...
-		<%: Html.Kendo().DatePicker().Name("Birthday") %>
-		...
+    <%: Html.Kendo().DatePicker().Name("Birthday") %>
     * Razor
-
-		...
-		@(Html.Kendo().DatePicker().Name("Birthday"))
-		...
-
+    
+    @(Html.Kendo().DatePicker().Name("Birthday"))
+    
 ### Using CDN
 
 You can include the JavaScript and CSS files from CDN. Don't forget to specify the version (e.g. 2012.2.710)
