@@ -296,7 +296,7 @@ or by registering files using their full names instead of using wildcards.
                     @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/kendo")
                 </head>
-> The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
+	> The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
 The easiest way to achieve this is to match the virtual bundle URL with the physical location of the CSS files, as demonstrated above.
 Otherwise, the theme images must be placed in a folder with a name that matches the used theme name and this subfolder should be a child folder of the bundle path.
 
