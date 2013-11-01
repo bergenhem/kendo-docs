@@ -194,7 +194,7 @@ you can use its [loaded flag](http://docs.kendoui.com/api/framework/node#methods
         expand: onExpand
     });
 
-The Node.loaded method above sets the loaded flag of the node, indicating that it needs to be refreshed.
+The Node.loaded method sets the loaded flag of the node, indicating that it needs to be refreshed.
 
 ### Gathering the checked nodes from a treeview
 
@@ -216,3 +216,41 @@ The Node.loaded method above sets the loaded flag of the node, indicating that i
     gatherStates(treeview.dataSource.view());
 
 The same approach can be used for gathering of expanded nodes.
+
+### Projecting the TreeView state
+
+Because the HierarchicalDataSource does not support data projection, you might need to remap state fields via the [schema.parse](http://docs.kendoui.com/api/framework/datasource#configuration-schema.parse) configuration option:
+
+    <div id="tree">
+    <script>
+      $("#tree").kendoTreeView({
+        dataSource: {
+          transport: {
+            read: function (options) {
+              setTimeout(function() {
+                options.success([
+                  { hasChildren: false, text: "Node 1", Downloaded: false },
+                  { hasChildren: true, text: "Node 2", Downloaded: true, items: [
+                    { hasChildren: false, text: "Node 2.1", Downloaded: false },
+                  ] }
+                ]);
+              }, 1000);
+            }
+          },
+          schema: {
+            parse: function(response) {
+              return $.map(response, function(x) {
+                x.expanded = x.Downloaded;
+                return x;
+              });
+            },
+            model: {
+              id: "id",
+              hasChildren: "hasChildren",
+              children: "items"
+            }
+          }
+        }
+      });
+
+    </script>
