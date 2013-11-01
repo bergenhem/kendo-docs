@@ -254,6 +254,7 @@ If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, t
 
 > If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
 or by registering files using their full names instead of using wildcards.
+
 1.  Register the bundles by executing the static method from the previous point in the `Application_Start()` method in **~/Global.asax.cs**:
 
         protected void Application_Start()
