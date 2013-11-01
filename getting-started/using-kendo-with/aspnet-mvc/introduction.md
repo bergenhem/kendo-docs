@@ -185,7 +185,6 @@ then copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css
 
 1.  Create bundles for the CSS and JavaScript files of Kendo UI by defining them in a static method of a class, e.g. in **~/BundlesConfig.cs**.
 The files can be defined with their full names or by using wildcards. **Pay special attention when using wildcards (see below).**
-
     * If the Kendo UI JavaScript files are in **~/Scripts** and the CSS files are in **~/Content** :
 
             public static void RegisterBundles(BundleCollection bundles)
@@ -255,7 +254,6 @@ If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, t
 
 > If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
 or by registering files using their full names instead of using wildcards.
-
 1.  Register the bundles by executing the static method from the previous point in the `Application_Start()` method in **~/Global.asax.cs**:
 
         protected void Application_Start()
@@ -300,11 +298,10 @@ or by registering files using their full names instead of using wildcards.
                     @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/kendo")
                 </head>
-
 > The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
 The easiest way to achieve this is to match the virtual bundle URL with the physical location of the CSS files, as demonstrated above.
 Otherwise, the theme images must be placed in a folder with a name that matches the used theme name and this subfolder should be a child folder of the bundle path.
-				
+
 1. Add a reference to the **Kendo.Mvc.UI** namespace to your **web.config**. Then the `Kendo` HtmlHelper extension would
 be availble in your views. Rebuild your project after adding the namespace to the web.config (required for Visual Studio to show intellisense for Kendo.Mvc.UI).
     * If you are using the WebForms view engine open the **web.config** file in the root folder of your application. Add
