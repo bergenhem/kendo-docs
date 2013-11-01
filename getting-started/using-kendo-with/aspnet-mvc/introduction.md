@@ -146,6 +146,10 @@ be availble in your views. Rebuild your project after adding the namespace to th
 
 ### Using Kendo UI in ASP.NET MVC 4 application
 
+> This section includes information about ASP.NET MVC bundling. The information is not related to Kendo UI, but we provide it for greater convenience.
+
+> For more details, please refer to the [official ASP.NET MVC documentation](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification).
+
 1. Create a new ASP.NET MVC 4 application from Visual Studio or open an existing one.
 
 1. Add a reference to **\wrappers\aspnetmvc\Binaries\Mvc3\Kendo.Mvc.dll**.
@@ -153,33 +157,35 @@ be availble in your views. Rebuild your project after adding the namespace to th
 
 1. Make sure the following section is present in your **web.config**. Add if not present:
 
-        <configuration>
-          <!--... elements deleted for clarity ...-->
-          <runtime>
-            <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-              <dependentAssembly>
-                <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
-                <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
-              </dependentAssembly>
-              <dependentAssembly>
-                <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
-                <bindingRedirect oldVersion="1.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
-              </dependentAssembly>
-              <dependentAssembly>
-                <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
-                <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
-              </dependentAssembly>
-            </assemblyBinding>
-          </runtime>
-        </configuration>
+	<configuration>
+	  <!--... elements deleted for clarity ...-->
+	  <runtime>
+		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+		  <dependentAssembly>
+			<assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+			<bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+		  </dependentAssembly>
+		  <dependentAssembly>
+			<assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+			<bindingRedirect oldVersion="1.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+		  </dependentAssembly>
+		  <dependentAssembly>
+			<assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+			<bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+		  </dependentAssembly>
+		</assemblyBinding>
+	  </runtime>
+	</configuration>
 
 1.  Copy the Kendo UI JavaScript files from the **\js** folder of the installation to the **Scripts** folder of your application.
 If you want to use CDN skip steps 4 and 5 and check the [Using CDN](#using-cdn) section.
 
-1.  Copy the Kendo UI CSS files and folders from the **\styles** folder of the installation to the **Content** folder of your application. If you want to use only one theme
-copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), the theme folder (e.g. **Default**) and the **textures** folder.
+1.  Copy the Kendo UI CSS files and folders from the **\styles** folder of the installation to the **Content** folder of your application. If you want to use only one theme,
+then copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), the theme folder (e.g. **Default**) and the **textures** folder.
 
-1.  Create bundles for the CSS and JavaScript files of Kendo UI by defining them in a static method of a class, e.g. in **~/BundlesConfig.cs**:
+1.  Create bundles for the CSS and JavaScript files of Kendo UI by defining them in a static method of a class, e.g. in **~/BundlesConfig.cs**.
+The files can be defined with their full names or by using wildcards. **Pay special attention when using wildcards (see below).**
+
     * If the Kendo UI JavaScript files are in **~/Scripts** and the CSS files are in **~/Content** :
 
             public static void RegisterBundles(BundleCollection bundles)
@@ -190,8 +196,8 @@ copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), 
 
                 // The Kendo JavaScript bundle
                 bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
-                        "~/Scripts/kendo.web.min.js", // or kendo.all.min.js if you want to use Kendo UI Web and Kendo UI DataViz
-                        "~/Scripts/kendo.aspnetmvc.min.js"));
+                        "~/Scripts/kendo.web.*", // or kendo.all.* if you want to use Kendo UI Web and Kendo UI DataViz
+                        "~/Scripts/kendo.aspnetmvc.*"));
 
                 // The Kendo CSS bundle
                 bundles.Add(new StyleBundle("~/Content/kendo").Include(
@@ -205,6 +211,9 @@ copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), 
                 bundles.IgnoreList.Ignore("*.intellisense.js");
                 bundles.IgnoreList.Ignore("*-vsdoc.js");
                 bundles.IgnoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+				
+				// enforce bundling and usage of *.min.* files even in debug mode
+				// BundleTable.EnableOptimizations = true;
             }
     * If the Kendo UI JavaScript files are in **~/Scripts/kendo/{version}** and the CSS files are in **~/Content/kendo/{version}** where **{version}** is the current Kendo UI version (e.g. 2012.3.1315):
 
@@ -215,10 +224,9 @@ copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), 
                                 "~/Scripts/jquery-1.*"));
 
                 // The Kendo JavaScript bundle - replace "2012.3.1315" with the Kendo UI version that you are using
-
                 bundles.Add(new ScriptBundle("~/bundles/kendo")
-                     .Include("~/Scripts/kendo/2012.3.1315/kendo.web.min.js") // or kendo.all.min.js
-                     .Include("~/Scripts/kendo/2012.3.1315/kendo.aspnetmvc.min.js")
+                     .Include("~/Scripts/kendo/2012.3.1315/kendo.web.*") // or kendo.all.min.js
+                     .Include("~/Scripts/kendo/2012.3.1315/kendo.aspnetmvc.*")
                 );
 
                 // The Kendo CSS bundle - replace "2012.3.1315" with the Kendo UI version that you are using
@@ -234,11 +242,19 @@ copy **kendo.common.min.css**, the theme file (e.g. **kendo.default.min.css**), 
                 bundles.IgnoreList.Ignore("*.intellisense.js");
                 bundles.IgnoreList.Ignore("*-vsdoc.js");
                 bundles.IgnoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+				
+				// enforce bundling even in debug mode
+				// BundleTable.EnableOptimizations = true;
             }
 
-    * The Kendo UI CSS files use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
-The easiest way to achieve this is to match the virtual bundle URL with the physical location of the CSS files, as demonstrated above.
-Otherwise, the theme images must be placed in a folder with a name that corresponds to the used theme name and this subfolder should be a child folder of the bundle path.
+> ASP.NET bundling makes the following assumptions when wildcards are used:
+
+> If `kendo.web.*` is included, the framework will check whether a `kendo.web.min.js` file exists. If yes, then this file will be used in **release mode only**.
+The framework will search for a `kendo.web.js` file for **debug** mode. If such a file is not found, the Kendo UI scripts will not be registered and you will experience Javascript errors.
+If a `kendo.web.min.js` file does not exist, but a `kendo.web.js` file exists, then it will be used in **both** release and debug mode. The same logic applies for CSS files.
+
+> If you want to enforce minified files in both debug and release mode, you can do so by setting `BundleTable.EnableOptimizations` to `true`, as shown above,
+or by registering files using their full names instead of using wildcards.
 
 1.  Register the bundles by executing the static method from the previous point in the `Application_Start()` method in **~/Global.asax.cs**:
 
@@ -246,7 +262,7 @@ Otherwise, the theme images must be placed in a folder with a name that correspo
         {
             // ...
 
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundlesConfig.RegisterBundles(BundleTable.Bundles);
         }
 
 1.  Load the bundles in your layout page at the end of the `head` element. **Remove any existing jQuery bundle registration at end of the `body` element of the page.** **Note:** If you don't want to use ASP.NET bundles perform steps 5 and 6 from the [Using Kendo UI in ASP.NET MVC 3 application](#using-kendo-ui-in-asp.net-mvc-3-application) section.
@@ -285,6 +301,10 @@ Otherwise, the theme images must be placed in a folder with a name that correspo
                     @Scripts.Render("~/bundles/kendo")
                 </head>
 
+> The Kendo UI theme stylesheets use relative paths to the theme images. This requires the theme images to be located in accordance with the relative paths in the CSS code.
+The easiest way to achieve this is to match the virtual bundle URL with the physical location of the CSS files, as demonstrated above.
+Otherwise, the theme images must be placed in a folder with a name that matches the used theme name and this subfolder should be a child folder of the bundle path.
+				
 1. Add a reference to the **Kendo.Mvc.UI** namespace to your **web.config**. Then the `Kendo` HtmlHelper extension would
 be availble in your views. Rebuild your project after adding the namespace to the web.config (required for Visual Studio to show intellisense for Kendo.Mvc.UI).
     * If you are using the WebForms view engine open the **web.config** file in the root folder of your application. Add
@@ -317,11 +337,11 @@ be availble in your views. Rebuild your project after adding the namespace to th
 1.  Use any Kendo UI HtmlHelper extension:
     * WebForms
 
-            <%: Html.Kendo().DatePicker().Name("Birthday") %>
+		<%: Html.Kendo().DatePicker().Name("Birthday") %>
     * Razor
 
-            @(Html.Kendo().DatePicker().Name("Birthday"))
-
+		@(Html.Kendo().DatePicker().Name("Birthday"))
+			
 ### Using CDN
 
 You can include the JavaScript and CSS files from CDN. Don't forget to specify the version (e.g. 2012.2.710)
