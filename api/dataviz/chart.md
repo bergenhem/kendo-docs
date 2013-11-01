@@ -10692,6 +10692,7 @@ The supported values are:
 * radarArea
 * radarColumn
 * radarLine
+* scatter
 * scatterLine
 * verticalArea
 * verticalBullet
