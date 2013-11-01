@@ -156,27 +156,27 @@ be availble in your views. Rebuild your project after adding the namespace to th
 > **Important:** Kendo UI Complete for ASP.NET MVC currently ships a single assembly which works in both ASP.NET MVC 3 and 4 applications.
 
 1. Make sure the following section is present in your **web.config**. Add if not present:
-    
+
     <configuration>
-      <!--... elements deleted for clarity ...-->
-      <runtime>
-        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-          <dependentAssembly>
-            <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
-            <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
-          </dependentAssembly>
-          <dependentAssembly>
-            <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
-            <bindingRedirect oldVersion="1.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
-          </dependentAssembly>
-          <dependentAssembly>
-            <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
-            <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
-          </dependentAssembly>
-        </assemblyBinding>
-      </runtime>
+        <!--... elements deleted for clarity ...-->
+        <runtime>
+            <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+                <dependentAssembly>
+                    <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+                    <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+                </dependentAssembly>
+                <dependentAssembly>
+                    <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+                    <bindingRedirect oldVersion="1.0.0.0-4.0.0.0" newVersion="4.0.0.0" />
+                </dependentAssembly>
+                <dependentAssembly>
+                    <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+                    <bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+                </dependentAssembly>
+            </assemblyBinding>
+        </runtime>
     </configuration>
-    
+
 1.  Copy the Kendo UI JavaScript files from the **\js** folder of the installation to the **Scripts** folder of your application.
 If you want to use CDN skip steps 4 and 5 and check the [Using CDN](#using-cdn) section.
 
