@@ -645,18 +645,14 @@ Restores a maximized or minimized Window to its previous state. Triggers the res
     <script>
     $("#dialog").kendoWindow();
     var dialog = $("#dialog").data("kendoWindow");
-    dialog.refresh("/feedbackForm");
 
-    dialog.refresh({
-        url: "/feedbackForm",
-        data: { userId: 42 }
-    });
+    // maximize the window
+    dialog.maximize();
 
-    dialog.refresh({
-        url: "/userInfo",
-        data: { userId: 42 },
-        template: "Hello, #= firstName # #= lastName #"
-    });
+    setTimeout(function() {
+      // restore its original size
+      dialog.restore();
+    }, 1000);
     </script>
 
 ### setOptions
