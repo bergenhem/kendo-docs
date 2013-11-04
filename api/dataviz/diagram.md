@@ -44,7 +44,7 @@ data source is fired. By default the widget will bind to the data source specifi
 
 ### name `String` *(default: "Diagram")*
 
-![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *The name doesn't seem to be used or do anything, does it?*
+The name of the diagram is an option which you are free to choose. It's being serialized with the diagram but has otherwise no additional function.
 
 ### zoomRate `Number` *(default: 1.1)*
 
@@ -54,9 +54,9 @@ The scaling factor or the zoom when using the mouse-wheel to zoom in or out.
 
 See the [dataSource field](#fields-dataSource).
 
-### dragAndDrop `Boolean` *(default: false)*
+### dragAndDrop `Boolean` *(default: true)*
 
-![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Can't see where or how this one is being used.*
+Defines whether items can be dropped on the diagram.
 
 ### template `String|Function`
 
@@ -135,7 +135,7 @@ A function returning a visual element to render for a given dataSource item. The
 
 ### tooltip `Object`
 ### copy `Object`
-### allowDrop `Boolean` *(default: true)*
+ 
 
 ## Fields
 
@@ -305,17 +305,6 @@ Loads a saved diagram.
 
 The serialized diagram in JSON format.
 
-### getValidZoom
-
-Makes sure the zoom in within some valid bounds.
-
-![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Probably not needed to be a public method*
-
-#### Parameters
-
-##### zoom `Number`
-
-The zoom factor.
 
 ### pan
 
@@ -330,10 +319,6 @@ The translation delta to apply to the diagram.
 ### viewport
 
 Returns the bounds of the diagramming canvas.
-
-### transformMainLayer
-
-![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Probably not needed to be a public method*
 
 ### transformPoint
 
@@ -674,11 +659,9 @@ Cuts the currently selected diagram items and puts them on the (internal diagram
 
 Pastes the content of the (internal diagram) clipboard in the diagram.
 
-### refresh
 
 ### findByUid
-
-### refreshSource
+ 
 
 ### layout
 
@@ -739,5 +722,3 @@ Whether the shapes should have random sizes. By default the shapes are circles b
 ### getId
 
 Returns the shape or connection with the specified identifier.
-
-![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *Overlap with findByUid*
