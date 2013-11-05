@@ -928,7 +928,7 @@ Example - custom shape with custom connectors
 
 The following defines a custom shape with connectors adapted to the shape's outline. Note in particular the various helpful methods (right(), left(), top()) to define positions relative to the shape. 
 
-![Custom connectors on custom shape.](../../../getting-started/dataviz/diagram/ThreeWayShape.PNG)
+![Custom connectors on custom shape.](../../getting-started/dataviz/diagram/ThreeWayShape.PNG)
 
 	var shape = new kendo.diagram.Shape({
             data:"m1,53.69333l17.5647,-17.56445l0,8.78235l23.15292,0l0,-26.34678l-8.78181,0l17.56417,-17.56444l17.5647,17.56444l-8.78238,0l0,26.34678l23.15297,0l0,-8.78235l17.56473,17.56445l-17.56473,17.56466l0,-8.78231l-63.87057,0l0,8.78231l-17.5647,-17.56466l0,0z",
