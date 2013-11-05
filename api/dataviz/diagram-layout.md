@@ -6,6 +6,7 @@ slug: api-framework
 tags: api,framework
 publish: false
 ---
+
 # Math and related 
 
 Kendo diagram contains various structures and utilities related to transformations of visuals, geometry, graph analysis and graph layout. A detailed explanation of all structures and methods would go well beyond the scope of this help, you can find additional information in these sources:
