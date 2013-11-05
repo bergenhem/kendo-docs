@@ -974,6 +974,8 @@ The following defines a custom shape with connectors adapted to the shape's outl
 
 ### clone
 
+Returns a clone (with a different id) of the shape.
+
 ### visualBounds
 
 ### rotatedBounds
@@ -984,9 +986,31 @@ The following defines a custom shape with connectors adapted to the shape's outl
 
 ### connections
 
+
 ### refreshConnections
 
 ### getConnector
+
+Fetches a (default or custom) Connector defined on the Shape by its name.
+
+##### Example - changing a Connector color after the shape was created
+
+	var s = diagram.addShape(new Point(100, 100),
+                            {
+                                data      : "circle",
+                                width     : 200,
+                                height    : 100,
+                                connectors: [
+                                    {
+                                        name       : "Top",
+                                        description: "Top Connector"
+                                    }
+                                ]
+                            });
+                    var c = s.getConnector("Top");
+                    c.options.background = "red"; 
+
+
 
 ### getPosition
 
@@ -1001,11 +1025,19 @@ The Connection object is a visual link or connection in the graph or diagram.
 ### configuration
 
 #### stroke `String` *(default: "Gray")*
+
 #### hoveredStroke `String` *(default: "#70CAFF")*
+
 #### startCap `String` *(default: "FilledCircle")*
+
 #### endCap `String` *(default: "ArrowEnd")*
+
 #### points `Array` *(default: [])*
+
 #### cssClass `String` *(default: "k-connection")*
+
+Defines the name of the CSS class of the SVG Group which represents the visual root of the Connection. The Connection's visual is an SVG Path inside a Group, the CSS class is defined on the level of the Group and not the Path. See [the Kendo styling guide for more information on styling and CSS](http://docs.kendoui.com/getting-started/web/appearance-styling "Appearance and styling in Kendo UI.").
+
 ### sourcePoint
 
 ### source
@@ -1052,8 +1084,6 @@ The Connector object is a visual intermediate between the Connection and the Sha
 
 Kendo diagram contains various structures and utilities related to transformations of visuals, geometry, graph analysis and graph layout. A detailed explanation of all structures and methods would go well beyond the scope of this help, you can find additional information in these sources:
 
-
-
 -  [the official SVG 1.1 documentation](http://www.w3.org/TR/SVG/coords.html "the official SVG 1.1 documentation")
 -  [graph drawing and graph analysis on Wikipedia](http://en.wikipedia.org/wiki/Graph_drawing "Graph drawing and graph analysis")
 -  [an introduction to networks](http://www.amazon.com/Networks-An-Introduction-Mark-Newman/dp/0199206651/ "An introduction to networks")
@@ -1080,14 +1110,19 @@ where the key and value can be arbitrary values or objects.
 
 ### add
 Adds a key-value pair to the table. The key/value can be objects or values (number or string). Adding a pair with an existing key will overwrite the stored object.
+
 ### set
 Sets or adds the key-value pair.
+
 ### get
 Returns the bucket (not the value) with the given key. No exception is thrown if the key is not present, null is returned.
+
 ### remove
 Removes the bucket with the given key (see the example code above). No exception is thrown if the key is not present.
+
 ### containsKey
 Returns whether the given key exists in the table.
+
 ### forEach
 Loops over the buckets in the hashtable (the key/value are not given as parameters but as one key-value object!).
 
