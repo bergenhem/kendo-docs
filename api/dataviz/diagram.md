@@ -785,10 +785,113 @@ See also the Matrix and MatrixVector objects in the Maths documentation.
 
 ## Shape
 
+The Shape object represents a visual node in the graph or diagram. 
+
+### Configuration
+
+#### cssClass `String` *(default: "k-shape")*
+#### data `String` *(default: "rectangle")*
+#### stroke `String` *(default: "Black")*
+#### strokeWidth `Number` *(default: 1)*
+#### strokeDashArray `String` *(default: "none")*
+#### x `Number` *(default: 0)*
+#### y `Number` *(default: 0)*
+#### minWidth `Number` *(default: 20)*
+#### minHeight `Number` *(default: 20)*
+
+#### width `Number` *(default: 100)*
+#### height `Number` *(default: 100)*
+#### background `String` *(default: "SteelBlue")*
+#### hoveredBackground `String` *(default: "#70CAFF")*
+
+#### connectors `Object` 
+
+#### rotation
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *this is an object right now and contains only an angle*
+
+#### content
+
+
+### bounds
+
+### position
+
+### triggerBoundsChange
+
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *private?*
+
+### clone
+
+### visualBounds
+
+### rotatedBounds
+
+### select
+
+### rotate
+
+### connections
+
+### refreshConnections
+
+### getConnector
+
+### getPosition
+
+### transformPoint
+
+### redraw
+
 ## Connection
+
+The Connection object is a visual link or connection in the graph or diagram.
+
+### configuration
+
+#### stroke `String` *(default: "Gray")*
+#### hoveredStroke `String` *(default: "#70CAFF")*
+#### startCap `String` *(default: "FilledCircle")*
+#### endCap `String` *(default: "ArrowEnd")*
+#### points `Array` *(default: [])*
+#### cssClass `String` *(default: "k-connection")*
+### sourcePoint
+
+### source
+
+### targetPoint
+
+### target
+
+
+### select
+
+### bounds
+
+### type
+
+### points
+
+### allPoints
+
+### serialize
+
+### redraw
+
+### refresh
 
 ## Connector
 
+The Connector object is a visual intermediate between the Connection and the Shape, it represents the attachment point of a Connection to a Shape.
+
+### configuration
+
+#### width `Number` *(default: 8)*
+#### height `Number` *(default: 8)*
+#### background `String` *(default: "Yellow")*
+#### hoveredBackground `String` *(default: "#70CAFF")*
+#### cssClass `String` *(default: "k-connector")*
+### position
 
 ----------
 
