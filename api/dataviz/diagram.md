@@ -1045,6 +1045,9 @@ This will print the incoming (20), outgoing (20) and all (40) connections. The f
 
 ### refreshConnections
 
+Calls the Connection.refresh() method on all attached connection.
+
+
 ### getConnector
 
 Fetches a (default or custom) Connector defined on the Shape by its name.
@@ -1092,8 +1095,6 @@ This custom shape has only one connector slightly offset from the center of the 
         }]
 		});
 
-### transformPoint
-
 ### redraw
 
 Renders the shape with the given options. It redefines the options and redraws the shape accordingly.
@@ -1103,8 +1104,6 @@ Renders the shape with the given options. It redefines the options and redraws t
 	var shape = diagram.addShape();
 	shape.redraw({background: "Green"});
 
-
-
 ## Connection
 
 The Connection object is a visual link or connection in the graph or diagram.
@@ -1113,21 +1112,102 @@ The Connection object is a visual link or connection in the graph or diagram.
 
 #### stroke `String` *(default: "Gray")*
 
+Defines the stroke or line color of the connection.
+
+##### Example - setting the stroke of a Connection
+
+	var s1 = diagram.addShape(new Point(100, 100));
+    var s2 = diagram.addShape(new Point(400, 100));
+    var conn = diagram.connect(s1,s2, {stroke:"red"});
+
 #### hoveredStroke `String` *(default: "#70CAFF")*
+
+Defines the highlight color when the pointer is hovering over the connection. 
+
+##### Example setting color and hovering color of the connection
+
+	var s1 = diagram.addShape(new Point(100, 100));
+    var s2 = diagram.addShape(new Point(400, 100));
+    var conn = diagram.connect(s1,s2,
+            {
+                stroke:"red",
+                hoveredStroke: "blue"
+            });
 
 #### startCap `String` *(default: "FilledCircle")*
 
+The start cap (arrow, head or decoration) of the connection:
+
+* "none": no cap
+* "ArrowStart": a filled arrow
+* "FilledCircle": a filled circle
+
+You easily add custom caps through the underlying mechanism of SVG called 'markers' (see e.g. [the SVG documentation](http://www.w3.org/TR/SVG/painting.html "SVG markers.")).
+
+##### Example - custom connection caps
+
+This defines and adds a custom cap (a small square) to the diagram canvas and is referred to in the connection options.
+
+![Custom square cap.](CustomCap.png)
+
+	 var con = diagram.connect(new Point(100,100), new Point(300,100));
+
+     diagram.canvas.addMarker(new kendo.diagram.Marker({
+        path  : {
+            data: "m20,20l0,60l60,0l0,-60z",
+            background: "Black"
+        },
+        id    : "custom",
+        orientation: "auto",
+        width : 15,
+        height: 15,
+        ref   : new Point(50, 50),
+        viewBox: new kendo.diagram.Rect(0,0,100,100)
+    }));
+
+    con.redraw({startCap: "custom"});
+
+
 #### endCap `String` *(default: "ArrowEnd")*
 
+The start cap (arrow, head or decoration) of the connection:
+
+* "none": no cap
+* "ArrowEnd": a filled arrow
+* "FilledCircle": a filled circle
+
+Note that you can also use the "ArrowStart" for the endCap but its direction will be inversed. Much like the startCap example above, you can define custom caps (markers) for the endpoint of the connection.
+
+
 #### points `Array` *(default: [])*
+
+Sets the intermediate points (in global coordinates) of the connection. It's important to note that currently these points cannot be manipulated in the interface.
+
+##### Example - setting intermediate connection points
+
+![Intermediate connection points.](ConnectionPoints.png)
+
+	var con = diagram.connect(new Point(100,100), new Point(300,100),
+        {
+            points: [ new Point(150,100),
+                      new Point(150,150),
+                      new Point(200,150),
+                      new Point(200,100)
+                    ]
+        }
+	);
+
 
 #### cssClass `String` *(default: "k-connection")*
 
 Defines the name of the CSS class of the SVG Group which represents the visual root of the Connection. The Connection's visual is an SVG Path inside a Group, the CSS class is defined on the level of the Group and not the Path. See [the Kendo styling guide for more information on styling and CSS](http://docs.kendoui.com/getting-started/web/appearance-styling "Appearance and styling in Kendo UI.").
 
+### source
+
+
 ### sourcePoint
 
-### source
+
 
 ### targetPoint
 
