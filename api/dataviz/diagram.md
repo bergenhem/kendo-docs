@@ -963,10 +963,33 @@ The following defines a custom shape with connectors adapted to the shape's outl
 
 #### content
 
+Sets the text content of the Shape.
+
+Example - setting the text
+
+	 var shape = diagram.addShape(new Point(100, 100),{
+                        content: "Telerik"
+                    });
+    // setting it explicitly in the options
+	shape.options.content = "Kendo UI";	
+    shape.redraw();
+
+	// or in one go by passing the settings
+    shape.redraw({content:"JustTrace"});
 
 ### bounds
 
+![alt Attention](http://demos.telerik.com/aspnet-ajax/toolbar/examples/overview/Img/followUp.gif "We need to look into this.") *all bounds should be merged*
+
 ### position
+
+Get/set method returning the current global position or sets the position specified.
+
+#### Parameters
+
+##### point `Point|Undefined`
+
+Either the location to set or if no parameter given returns the current location.
 
 ### triggerBoundsChange
 
@@ -982,10 +1005,43 @@ Returns a clone (with a different id) of the shape.
 
 ### select
 
+Selects or deselects the shape.
+
+#### Parameters
+
+##### value `Boolean`
+
+Use 'true' to select the shape or 'false' to deselect it.
+
 ### rotate
 
 ### connections
 
+Returns the connections attached to the shape. You can optionally specify to return only the incoming or outgoing connections.
+
+#### Parameters
+
+##### type `String`
+
+If not parameter specified all connections are returned, if "in" then only the incoming (i.e. towards the shape) are returned, if "out" the only the outgoing (i.e. away from the shape) are returned. 
+
+##### Example - counting in/out connections
+	
+This will print the incoming (20), outgoing (20) and all (40) connections. The first incoming connection's stroke is turned red.
+
+	var shape = diagram.addShape(new Point(100, 100));
+    var rightConnector = shape.getConnector("Right");
+    var leftConnector = shape.getConnector("Left");
+    for(var k =0; k<20; k++){
+        diagram.connect(rightConnector, new Point(300, k*20));
+        diagram.connect( new Point(0, k*20), leftConnector);
+    }
+    console.log("incoming: " + shape.connections("in").length);
+    console.log("outgoing: " + shape.connections("out").length);
+    console.log("all: " + shape.connections().length);
+
+    var connection = shape.connections("in")[0];
+    connection.redraw({stroke : "red"});
 
 ### refreshConnections
 
@@ -1014,9 +1070,40 @@ Fetches a (default or custom) Connector defined on the Shape by its name.
 
 ### getPosition
 
+Returns the middle positions of the sides of the bounds or the center of the shape's bounds. This method is useful when defining custom connectors where a position function relative to the shape's coordinate system is required.
+#### Parameters
+
+##### side `String`
+
+One of the four sides of a bound; "left", "right", "top", "bottom". If none specified the center of the shape's bounds will be returned.
+
+##### Example - a custom connector positioned near the center
+
+This custom shape has only one connector slightly offset from the center of the shape.
+
+	var shape = new kendo.diagram.Shape(	
+		{ "connectors": [{
+            name: AUTO,
+            Description: "Auto Connector",
+            position: function (shape) {
+                var center = shape.getPosition("center");
+				return new Point(center.x + 15, center.y); 
+            }
+        }]
+		});
+
 ### transformPoint
 
 ### redraw
+
+Renders the shape with the given options. It redefines the options and redraws the shape accordingly.
+
+##### Example - change the shape's background color
+
+	var shape = diagram.addShape();
+	shape.redraw({background: "Green"});
+
+
 
 ## Connection
 
