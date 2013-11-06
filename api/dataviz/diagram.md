@@ -1148,7 +1148,7 @@ You easily add custom caps through the underlying mechanism of SVG called 'marke
 
 This defines and adds a custom cap (a small square) to the diagram canvas and is referred to in the connection options.
 
-![Custom square cap.](CustomCap.png)
+![Custom square cap.](CustomCap.PNG)
 
 	 var con = diagram.connect(new Point(100,100), new Point(300,100));
 
@@ -1185,7 +1185,7 @@ Sets the intermediate points (in global coordinates) of the connection. It's imp
 
 ##### Example - setting intermediate connection points
 
-![Intermediate connection points.](ConnectionPoints.png)
+![Intermediate connection points.](ConnectionPoints.PNG)
 
 	var con = diagram.connect(new Point(100,100), new Point(300,100),
         {
