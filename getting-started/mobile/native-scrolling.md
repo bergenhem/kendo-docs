@@ -46,7 +46,7 @@ Using the native scroller enables this behavior.
 ### Native Scrolling Compatibility and Limitations
 
 - The native scrolling hint is visible over of the view header/footer contents.
-- Features which depend on the JavaScript-based scrolling are not supported (ListView Pull To Refresh, Press To Load More, Fixed Headers, etc.)
+- Features which depend on the JavaScript-based scrolling are not supported (Zooming, ListView Pull To Refresh, Press To Load More, Fixed Headers, etc.)
 - In native scrolling mode, the mobile view does not initialize a mobile scroller; The mobile view/application `scroller` field will return `null`.
 - The mobile drawer widget does not support content scrolling.
 - Scrolling in one view and navigating to another preserves the scrolled offset. This behavior can be changed by calling [scrollTo](https://developer.mozilla.org/en-US/docs/Web/API/window.scrollTo) in the view after show event handler.
