@@ -121,7 +121,6 @@ actions with the name "Custom", but any name can be used. Click events can be ca
 
 ## Loading Window content via AJAX
 
-
 A **Window** provides built-in support for asynchronously loading content from a URL. This URL
 should return a HTML fragment that can be loaded in a Window content area.
 
@@ -137,6 +136,12 @@ should return a HTML fragment that can be loaded in a Window content area.
             title: "Async Window Content"
         });
     });
+
+### Using iframes
+
+By default, the Window creates an `iframe` for its content if the content URL contains a protocol, i.e. it is assumed that it points to another domain.
+If the URL does not contain s protocol, the assumption is that this is a local URL that will load a partial view (not a full page), so an iframe is not created.
+This behavior can be controlled explicitly via the widget configuration.
 	
 ## Accessing an Existing Window
 
