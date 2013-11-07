@@ -137,7 +137,7 @@ should return a HTML fragment that can be loaded in a Window content area.
         });
     });
 
-### Using iframes
+## Using iframes
 
 By default, the Window creates an `iframe` for its content if the content URL contains a protocol, i.e. it is assumed that it points to another domain.
 If the URL does not contain s protocol, the assumption is that this is a local URL that will load a partial view (not a full page), so an iframe is not created.
