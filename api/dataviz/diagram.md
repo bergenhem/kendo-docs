@@ -930,6 +930,8 @@ Referring to the code above and the bar-chart inside a shape, we can turn this i
 
 This represents an adorning element of a Path visual, an arrow head in particular. To define a marker on a Path you need both the assignment to the Path and the addition to the definition section (the <defs/> section)of the underlying SVG root. The Canvas element has an addMarker method which does take care of this however.
 
+The startCap property of the Connection has an example demonstrating the Marker.
+
 ### Line
 
 This represents a single, straight line segment.
