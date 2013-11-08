@@ -754,29 +754,161 @@ Returns the shape or connection with the specified identifier.
 
 ## Visual elements
 
-The visual primitives are wrappers around the native SVG elements and make it easy to create a custom Shape or other custom diagram elements. A complete overview of all the members would fall outside the scope of this help and you are referred to the SVG documentation for more information. In fact, all of the properties and methods defined in these primitives point directly to a corresponding member in the native SVG element. Rather than reproducing the online documentation we'll give ample examples to illustrate the technique (to create custom visuals). 
+The visual primitives are wrappers around the native SVG elements and make it easy to create a custom Shape or other custom diagram elements. A complete overview of all the members would fall outside the scope of this help and you are referred to the SVG documentation for more information. In fact, all of the properties and methods defined in these primitives point directly to a corresponding member in the native SVG element. Rather than reproducing the online documentation we'll give ample examples to illustrate the technique (to create custom visuals and add content to the diagram).
+ 
+It should be emphasized that when you add content to the underlying canvas or define a custom Shape the serialization will not automatically 'know' about these additions. If you wish to preserve them between sessions or in a copy/paste operation you'll need to override the serialize() method of the Shape or the save() method of the diagram.
 
 ### TextBlock
 
+This represents a non-wrapping text element.
 
+##### Example - adding a text element to the background canvas
+
+This will add a text element underneath the diagram in the canvas. 
+
+	diagram.canvas.append(
+        new kendo.diagram.TextBlock(
+        {   text:"Kendo diagrams",
+            x:200,
+            y:50,
+            fontFamily: "Tahoma",
+            fontSize: 25,
+            background: "SteelBlue"
+        })
+        );
+	
+##### Example - define a custom shape with databound text in it
+
+
+	var getVisual = function(data)
+					{
+					    var g = new kendo.diagram.Group({
+					        autoSize: true
+					    });
+					    var r = new kendo.diagram.Circle({
+					        width : 100,
+					        height: 60,
+					        background: "LimeGreen"
+					    });
+					    g.append(r);
+					    var fn = new kendo.diagram.TextBlock({
+					        text: data.name,
+					        fontSize: 16,
+					        x   : 30,
+					        y   : 30
+					    });
+					    g.append(fn);
+					    return g;
+					}
+	var options = {
+	    dataSource: [
+	        {
+	
+	            "name" : "Telerik",
+	            "items": [
+	                {"name": "Kendo"},
+	                {"name": "Icenium"}
+	            ]
+	        }
+	    ],
+	    autoBind  : true,
+	    visualTemplate  : getVisual
+	};
+	diagram = $("#canvas").kendoDiagram(options).data("kendoDiagram");
+	diagram.layout(); 
 
 ### Rectangle
 
+This represents a standard rectangle.
+
+##### Example - creating a simple bar-chart in a custom shape
+
+This example creates a databound, custom shape with Rectangle primitives into a simple bar chart.
+
+![Simple bar chart using rectangles.](ChartShape.PNG)
+
+	var getVisual = function(data)
+	{
+	    var g = new kendo.diagram.Group({
+	        autoSize: true
+	    });
+	    var r = new kendo.diagram.Rectangle({
+	        width : 100,
+	        height: 80,
+	        background: "White",
+	        stroke: "DimGray"
+	    });
+	    g.append(r);
+	    var d = data.data;
+	    if(d){
+	        for(var k=0;k< d.length; k++){
+	            var color= d[k]<40? "green":"red";
+	            g.append(new kendo.diagram.Rectangle({x: 10+k*12, y: 60- d[k], height:d[k], width:10, background:color, stroke:"none"}));
+	        }
+	    }
+	
+	    var fn = new kendo.diagram.TextBlock({
+	        text: data.name,
+	        fontSize: 11,
+	        fontFamily:"Segoe UI",
+	        background:"gray",
+	        x   : 30,
+	        y   : 13
+	    });
+	    g.append(fn);
+	    return g;
+	}
+	var options = {
+	    dataSource: [
+	        {
+	            "name" : "Josh K.",
+	            "data" : [10.5, 44.1, 33.7, 12.0, 23.9 ],
+	            "items": [
+	                {"name": "Anna W.", "data": [7.5, 24.4, 13.0, 40.9, 13.1 ]},
+	                {"name": "Jeff L.", "data": [20.5, 34.7, 43.7, 42.0, 3.9 ]}
+	            ]
+	        }
+	    ],
+	    autoBind  : true,
+	    visualTemplate: getVisual
+	};
+	diagram = $("#canvas").kendoDiagram(options).data("kendoDiagram");
+	diagram.layout({type:"Tree", subtype:"MindmapHorizontal"});
+
 ### Path
+
+This represents a path with a path definition following the SVG 1.1 standard.
+
 
 ### Marker
 
+This represents an adorning element of a Path visual, an arrow head in particular. To define a marker on a Path you need both the assignment to the Path and the addition to the definition section (the <defs/> section)of the underlying SVG root. The Canvas element has an addMarker method which does take care of this however.
+
 ### Line
+
+This represents a single, straight line segment.
 
 ### Polyline
 
+This represents a straight, multi-point line.
+
 ### Image
 
+This represents an image.
+
 ### Group
+
+This represents an invisible, grouping element with visual children. Groups can be nested to form a hierarchy.
  
 ### Circle
 
+This represents an ellipse or circle.
+
 ### Canvas
+
+
+This is a wrapper around the SVG root which defines various utility methods and properties to easily add and manipulate elements (markers, visual, positions and so on).
+
 
 
 ## Transformations
