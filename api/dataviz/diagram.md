@@ -879,6 +879,52 @@ This example creates a databound, custom shape with Rectangle primitives into a 
 
 This represents a path with a path definition following the SVG 1.1 standard.
 
+Example - making a simple sparkline
+
+Referring to the code above and the bar-chart inside a shape, we can turn this into a simple sparkline as follows. 
+
+![Sparkline in a shape.](ShapeSparkline.PNG)
+
+	var getVisual = function(data)
+	{
+	    var g = new kendo.diagram.Group({
+	        autoSize: true
+	    });
+	    var r = new kendo.diagram.Rectangle({
+	        width : 100,
+	        height: 80,
+	        background: "White",
+	        stroke: "DimGray"
+	    });
+	    g.append(r);
+	    var d = data.data;
+	    if(d){
+	        var dm = "M", max = 0, m;
+	        for(var k=0;k< d.length; k++){
+	            if(max<d[k]){
+	                max = d[k];
+	                m=k;
+	            }
+	            max = Math.max(max, d[k]);
+	            //var color= d[k]<40? "green":"red";
+	            dm += " " + (20+k*12) + "," + (70 - d[k]);
+	        }
+	        g.append(new kendo.diagram.Path({data:dm, stroke: "red", background:"none"}));
+	        g.append(new kendo.diagram.Circle({radius:3, background: "red", x: 17+m*12, y: (70-d[m]-3)}));
+	    }
+	
+	    var fn = new kendo.diagram.TextBlock({
+	        text: data.name,
+	        fontSize: 11,
+	        fontFamily:"Segoe UI",
+	        background:"gray",
+	        x   : 30,
+	        y   : 13
+	    });
+	    g.append(fn);
+	    return g;
+	}
+
 
 ### Marker
 
@@ -902,7 +948,7 @@ This represents an invisible, grouping element with visual children. Groups can 
  
 ### Circle
 
-This represents an ellipse or circle.
+This represents an ellipse or circle. For a concrete example, see the example above which describes a simple sparkline inside a shape.
 
 ### Canvas
 
