@@ -80,8 +80,9 @@ Below are the system requirements for the Kendo UI Framework.
 
 **NOTES:**
 
-* Browsers in BETA stage are not supported
-* Quirks mode is not supported. Always specify a [DOCTYPE](http://reference.sitepoint.com/html/doctypes) on your pages!
+* Browsers in BETA stage are not supported.
+* Quirks mode is not supported. Always specify a [DOCTYPE](http://reference.sitepoint.com/html/doctypes)! Supported DOCTYPES include `HTML5`, `XHTML 1.1`, `XHTML 1.0` (`Transitional` or `Strict`), `HTML4` (**`Strict`** only).
+`HTML4 Loose` triggers quirks mode, hence it should not be used.
 * Internet Explorer issues caused by inconsistent compatibility modes are not supported. For example, if an IE7 compatibility mode has a different behavior compared to a true IE7, then the true IE7 browser is supported.
 * Kendo UI uses progressive enhancement for its CSS styling. As a result, old and obsolete browsers may ignore CSS3 styles, such as rounded corners and linear gradients
 
