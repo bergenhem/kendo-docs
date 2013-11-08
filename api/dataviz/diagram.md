@@ -754,16 +754,30 @@ Returns the shape or connection with the specified identifier.
 
 ## Visual elements
 
+The visual primitives are wrappers around the native SVG elements and make it easy to create a custom Shape or other custom diagram elements. A complete overview of all the members would fall outside the scope of this help and you are referred to the SVG documentation for more information. In fact, all of the properties and methods defined in these primitives point directly to a corresponding member in the native SVG element. Rather than reproducing the online documentation we'll give ample examples to illustrate the technique (to create custom visuals). 
+
 ### TextBlock
+
+
+
 ### Rectangle
+
 ### Path
+
 ### Marker
+
 ### Line
+
 ### Polyline
+
 ### Image
-### Group 
+
+### Group
+ 
 ### Circle
+
 ### Canvas
+
 
 ## Transformations
 
