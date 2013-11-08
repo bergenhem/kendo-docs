@@ -1074,6 +1074,7 @@ Fetches a (default or custom) Connector defined on the Shape by its name.
 ### getPosition
 
 Returns the middle positions of the sides of the bounds or the center of the shape's bounds. This method is useful when defining custom connectors where a position function relative to the shape's coordinate system is required.
+
 #### Parameters
 
 ##### side `String`
@@ -1204,31 +1205,90 @@ Defines the name of the CSS class of the SVG Group which represents the visual r
 
 ### source
 
+Get/set method which returns the current source of the connection if no parameter is supplied and sets the source if an object is given. This object can be a Point for a floating endpoint (i.e. not attached to a shape), a Shape or a Connector of a Shape. You can use the Shape.getConnector() method to fetch a Connector on the basis of its name. If a Shape is specified the Connection will attach to the "Auto" connector.
+
+
+#### Parameters
+
+##### source `Shape|Point|Connector`
+
+* Point: any Point on the canvas. This creates an unattached floating endpoint.
+* Shape: will bind the endpoint to the"Auto" Connector which will switch between the other connectors to minimize the length of the connection.
+* Connector: the connection's endpoint will remain fixed attached to the specified Connector.
+
+If no source is specified the method will return the current object to which the Connection's endpoint is attached.
 
 ### sourcePoint
 
+Returns the global coordinate of the connection's start (initial endpoint). The method returns a Point independently of the object to which the source is attached.
 
-
-### targetPoint
 
 ### target
 
+Similar to the source, this gets or set the target of the Connection. The parameters and considerations are identical in both cases.
+
+### targetPoint
+
+Similar to the sourcePoint, this gets the coordinates of the target of the Connection independently of its endpoint attachement.
 
 ### select
 
+Select or deselects the Connection.
+
+#### Parameters
+
+##### value `Boolean` *(default: true)*
+
+True to select the Connection and 'false' to deselect it.
+
 ### bounds
 
+Gets the bounds of the Connection.
+
 ### type
+
+Gets or sets the (sub-) type of the Connection which defines the way it routes. The routing of a connection is the way that intermediate points of a Connection defines a route. A route is usually defined on the basis of constraints or behaviors. Currently the framework defines a default polyline route (which simply connects the given intermediate points) and a simple rectangular (aka cascading) route. The cascading type is useful when using tree layout and hierarchies; the routed Connection will in this case enhance the representation of the hierarchy and thus reproduce a classic organization diagram.
+
+ 
+#### Parameters
+
+##### value `String` *(default: "Polyline")*
+
+* "Polyline": connects the defined intermediate points. See the points() method.
+*  "Cascading": discards given points and defines a cascading path between the endpoints. 
 
 ### points
 
 ### allPoints
 
+Returns all points of the Connection, i.e. the union of the endpoints and the intermediate points.
+
 ### serialize
+
+Returns a serialized JSON representation of the Connection.
 
 ### redraw
 
+Redraws the Connection with the given options.
+
+##### Example - changing the Connection after it has been added
+
+![Connection redraw.](ConnectionRedraw.PNG)
+
+	var con = diagram.connect(new Point(10,10), new Point(200,70));
+	con.redraw({
+	        content: "Label",
+	        stroke : "Orange",
+	        points:[new Point(200,10)]
+	        }
+	);
+
+
+
 ### refresh
+
+This refreshes the visuals, the connectors and bounds. The method is part of the object hierarchy, is automatically called when dependencies change and should not be called unless you have customized the Connection.
+
 
 ## Connector
 
