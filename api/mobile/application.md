@@ -113,7 +113,7 @@ If set to true, the application will not use AJAX to load remote views.
 
 The skin to apply to the application. Currently, Kendo UI Mobile ships with a **flat** skin in addition to the native looking ones.
 
-> Unlike the platform option, the skin setting will be applied on any device, making the application look the same way.
+> The skin setting will be applied on any device, making the application look the same way.
 
 #### Example
 
