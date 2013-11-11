@@ -242,6 +242,8 @@ A widget can be destroyed if it is no longer needed, or if it is placed inside a
 
 Kendo UI widgets are destroyed automatically when the web page is unloaded.
 
+**Creating a new widget instance from the leftovers of a destroyed widget may work in most cases, but is not recommended. Please initialize new widgets from different (e.g. newly appended) DOM elements.**
+
 ### Example - destroying a widget
 
 	<div id="grid"></div>
