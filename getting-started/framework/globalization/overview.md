@@ -70,3 +70,4 @@ Here is a list of widgets which depends on the current culture:
 - TimePicker
 - DateTimePicker
 - NumericTextBox
+- Scheduler
