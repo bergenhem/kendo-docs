@@ -178,10 +178,10 @@ function will be invoked when the **change** event is fired.
 
 ### Event Handler
 
-The event handler is the JavaScript function invoked when the event is fired. The argument of the event handler is a JavaScript object which contains event specific data.
-You can get a reference of the widget which fired the event via the `sender` field of the event argument.
+The event handler is the JavaScript function invoked when the event is fired. The argument of the event handler is a JavaScript object which contains event-specific data.
 
-The function context of the event handler (available via the `this` keyword) is set to the instance of the widget which fired the event.
+You can get a reference to the widget which fired the event via the **`sender`** field of the event argument.
+The function context of the event handler (available via the `this` keyword) is also set to the widget instance.
 
 #### Example - use the sender field of the event argument
 
