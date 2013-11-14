@@ -577,6 +577,7 @@ The user will still be able to move the Window with the mouse or keyboard.
 ### refresh
 
 Refreshes the content of a Window from a remote URL or the initially defined [content template](/api/web/window#configuration-content.template).
+Note that passing data and requests different than GET cannot be sent to an iframe at this time, as they tequire a form with a target attribute.
 
 #### Parameters
 
